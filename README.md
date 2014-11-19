@@ -1,4 +1,5 @@
 AirPlanModeSwitcher
 ===================
 
-AirPlanModeSwitcher for Android
+MyAirPlanMode  the main project
+SwitchCompatLibrary the switch compatLib reference 

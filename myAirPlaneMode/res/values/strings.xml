@@ -90,4 +90,8 @@
     <string name="task_context_menu_info">查看</string>
     <string name="task_context_menu_edit">编辑</string>
     <string name="task_context_menu_delete">删除</string>
+    <string name="alertDialog_positive">确定</string>
+    <string name="alertDialog_negative">取消</string>
+    <string name="alertDialogTaskInput_title">请输入任务名称</string>
+    <string name="alertDialogTimeChoose_title">请选择任务时间</string>
 </resources>

@@ -45,13 +45,13 @@ public class HomeActivity extends SherlockListActivity
         tasks.add(new TaskEntity(true, 0x00000060, "14:00",
                 "周末午休开始", true));
         */
-        tasks.add(new TaskEntity(false, 0x00000060, "16:30",
+        tasks.add(new TaskEntity(false, 0x00000060,  Utils.getCalendar(16, 30),
                 "周末午休结束", true));
-        tasks.add(new TaskEntity(true, 0x00000060, "02:30",
+        tasks.add(new TaskEntity(true, 0x00000060, Utils.getCalendar(02, 30),
                 "周末睡觉开始", true));
-        tasks.add(new TaskEntity(false, 0x00000060, "10:30",
+        tasks.add(new TaskEntity(false, 0x00000060, Utils.getCalendar(10, 30),
                 "周末睡觉结束", true));
-        tasks.add(new TaskEntity(false, 0x00000000, "10:30",
+        tasks.add(new TaskEntity(false, 0x00000000, Utils.getCalendar(12, 30),
                 "单次睡觉", false));
         
         taskAdapter = new TaskListAdapter(this, tasks);
@@ -137,7 +137,7 @@ public class HomeActivity extends SherlockListActivity
             case R.id.id_action_settings:
                 //Toast.makeText(this, "Settings TODO", Toast.LENGTH_SHORT).show();
                 Utils.showToast(this, "Settings TODO");
-        }      
+        }
         return super.onOptionsItemSelected(item);      
     }  
 

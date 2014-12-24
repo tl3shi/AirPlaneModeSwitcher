@@ -5,14 +5,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" >
+    <!--<FrameLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true" >-->
         <ListView
             android:id="@android:id/list"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:divider="#00000000"
@@ -22,6 +22,6 @@
             android:paddingTop="10dp"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="none" />
-    </FrameLayout>
+    <!--</FrameLayout>-->
 
 </RelativeLayout>

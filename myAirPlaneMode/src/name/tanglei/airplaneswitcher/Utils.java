@@ -8,6 +8,7 @@ import java.util.Locale;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,6 +16,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.PowerManager;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class Utils
@@ -206,7 +208,13 @@ public class Utils
     	SimpleDateFormat formatter = new SimpleDateFormat(context.getString(R.string.timeFormat), Locale.getDefault());  
         return formatter.format(date); 
     }
-	
+
+    public static String formatTime(Context context, Calendar time)
+    {
+        SimpleDateFormat formatter = new SimpleDateFormat(context.getString(R.string.timeFormat), Locale.getDefault());
+        return formatter.format(time.getTime());
+    }
+
 	public static boolean isRooted()
 	{
 		boolean root = false;
@@ -272,12 +280,22 @@ public class Utils
 	
 	public static TaskEntity createTask(Context context)
     {
-	    return new TaskEntity(true, 0, Utils.formatTime(context, System.currentTimeMillis()),
+	    return new TaskEntity(true, 0, Calendar.getInstance(Locale.getDefault()),
 	            context.getResources().getString(R.string.task_default_name), true);
     }
-	
+
+    public static Calendar getCalendar(int hour, int minute)
+    {
+        Calendar time = Calendar.getInstance(Locale.getDefault());
+        time.set(Calendar.HOUR_OF_DAY, hour);
+        time.set(Calendar.MINUTE, minute);
+        return time;
+    }
+
 	public static void showToast(Context con, String text)
 	{
 	    Toast.makeText(con, text, Toast.LENGTH_SHORT).show();
 	}
+
+
 }

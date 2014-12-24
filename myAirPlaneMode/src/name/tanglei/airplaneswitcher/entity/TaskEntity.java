@@ -1,14 +1,33 @@
 package name.tanglei.airplaneswitcher.entity;
- 
+
+import android.content.Context;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import name.tanglei.airplaneswitcher.Utils;
+
 public class TaskEntity
 {
     private boolean modeOn;
     private int repeat; //repeat
-    private String time;
+    //private String time;
+    private Calendar time;
     private String title;
     private boolean isActive;
-    
-    public TaskEntity(boolean modeOn, int repeat, String time,
+
+    @Override
+    public String toString() {
+        return "TaskEntity{" +
+                "modeOn=" + modeOn +
+                ", repeat=" + repeat +
+                ", time='" + time + '\'' +
+                ", title='" + title + '\'' +
+                ", isActive=" + isActive +
+                '}';
+    }
+
+    public TaskEntity(boolean modeOn, int repeat, Calendar time,
             String title, boolean isActive)
     {
         super();
@@ -27,14 +46,15 @@ public class TaskEntity
     {
         this.repeat = repeat;
     }
-    public String getTime()
+    public Calendar getTime()
     {
         return time;
     }
-    public void setTime(String time)
+    public void setTime(Calendar time)
     {
         this.time = time;
     }
+
     public String getTitle()
     {
         return title;
@@ -73,5 +93,20 @@ public class TaskEntity
             this.repeat &= (0xFFFFFFFF ^ 1 << (day-1));
         else
             this.repeat |= 1 << (day-1);
+    }
+
+    public int getHour()
+    {
+        return time.get(Calendar.HOUR_OF_DAY);
+    }
+
+    public  int getMinute()
+    {
+        return time.get(Calendar.MINUTE);
+    }
+
+    public String getTimeStr(Context context)
+    {
+        return Utils.formatTime(context, this.time);
     }
 }

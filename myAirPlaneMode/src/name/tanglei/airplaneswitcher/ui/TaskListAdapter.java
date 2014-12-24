@@ -31,7 +31,7 @@ public class TaskListAdapter extends ArrayAdapter<TaskEntity>
         TextView timeView = (TextView) rowView
         //        .findViewById(R.id.idTime);
                     .findViewById(R.id.alarm_line_alarm_hour);
-        timeView.setText(task.getTime());
+        timeView.setText(task.getTimeStr(this.getContext()));
 
         TextView modeOn = (TextView) rowView
                 //.findViewById(R.id.idModeOn);
@@ -60,8 +60,7 @@ public class TaskListAdapter extends ArrayAdapter<TaskEntity>
                     if(((repeat >> i) & 0x1) == 0x1)
                         repeatDesc += constDesc[i] + ",";
                 }
-                if(repeatDesc.split(",").length == 1)
-                	repeatDesc = repeatDesc.substring(0, repeatDesc.length()-1);
+                repeatDesc = repeatDesc.substring(0, repeatDesc.length()-1);
             }
         //TextView txRepeat = (TextView)rowView.findViewById(R.id.idRepeat);
         TextView txRepeat = (TextView)rowView.findViewById(R.id.alarm_line_alarm_weekdays);

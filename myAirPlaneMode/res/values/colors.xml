@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="DARK_GRAY">#808080</color>
+    <color name="LIGHT_GRAY">#E9E9E9</color>
+    <color name="WHITE_GRAY">#F2F2F2</color>
+    <color name="BLUE">#6cb7ff</color>
+    <color name="LIGHT_BLUE">#88d4f0</color>
+    <color name="WHITE">#FFFFFF</color>
+    <color name="RED">#FF0000</color>
+    <color name="BLACK">#000000</color>
+    <color name="GRAY">#777778</color>
+    <color name="GREEN">#00EE00</color>
+    
+    <color name="abs__background_holo_dark">#ff000000</color>
+    <color name="abs__background_holo_light">#fff3f3f3</color>
+    <color name="abs__bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
+    <color name="abs__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <item type="color" name="abs__bright_foreground_holo_dark">@color/abs__background_holo_light</item>
+    <item type="color" name="abs__bright_foreground_holo_light">@color/abs__background_holo_dark</item>
+    <color name="btn_focused">#ff0099cc</color>
+    <color name="btn_normal">#00000000</color>
+    <color name="btn_pressed">#ff33b5e5</color>
+    <color name="common_action_bar_splitter">#ffd2d2d2</color>
+    <item type="color" name="common_signin_btn_dark_text_default">@*android:color/white</item>
+    <color name="common_signin_btn_dark_text_disabled">#ffaaaaaa</color>
+    <item type="color" name="common_signin_btn_dark_text_focused">@*android:color/white</item>
+    <item type="color" name="common_signin_btn_dark_text_pressed">@*android:color/white</item>
+    <color name="common_signin_btn_default_background">#ffdd4b39</color>
+    <color name="common_signin_btn_light_text_default">#ff737373</color>
+    <color name="common_signin_btn_light_text_disabled">#ffaaaaaa</color>
+    <color name="common_signin_btn_light_text_focused">#ff737373</color>
+    <item type="color" name="common_signin_btn_light_text_pressed">@*android:color/white</item>
+    <color name="holo_dark_background">#ff282828</color>
+    <color name="holo_dark_list_divider">#ff484848</color>
+    <color name="husky_background">#ff1c1c1c</color>
+    <color name="husky_bottom_border">#ff484848</color>
+    <color name="husky_checkbox_disabled">#ff707070</color>
+    <color name="husky_dark_font">#ff333333</color>
+    <color name="husky_default_font">#ffffffff</color>
+    <color name="husky_default_font_dim">#ffaaaaaa</color>
+    <color name="husky_fragment_background">#ff333333</color>
+    <color name="husky_game_dim">#ff999999</color>
+    <color name="husky_game_title">#ff7d7d7d</color>
+    <color name="husky_highlight">#ff555555</color>
+    <color name="husky_inactive_font">#ff8f8f8f</color>
+    <color name="husky_inactive_font_dim">#ff606060</color>
+    <color name="husky_progress_bar_background">#ff474747</color>
+    <color name="husky_progress_bar_progress">#ffcc0000</color>
+    <color name="husky_seek_bar">#ffffffff</color>
+    <color name="husky_switch_background">#ff3d3d3d</color>
+    <color name="husky_underline_normal">#ff777777</color>
+    <color name="husky_underline_selected">#ffffffff</color>
+    <color name="popup_bg_color">#ee666666</color>
+    <color name="popup_text_color">#ffffffff</color>
+    <color name="pressed_pac">#cc33b5e5</color>
+    <color name="sdl_bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
+    <color name="sdl_bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <color name="sdl_bright_foreground_holo_dark">#fff3f3f3</color>
+    <color name="sdl_bright_foreground_holo_light">#ff000000</color>
+    <color name="sdl_button_focused_dark">#4c0099cc</color>
+    <color name="sdl_button_focused_light">#4c33b5e5</color>
+    <item type="color" name="sdl_button_normal_dark">@*android:color/transparent</item>
+    <item type="color" name="sdl_button_normal_light">@*android:color/transparent</item>
+    <color name="sdl_button_pressed_dark">#990099cc</color>
+    <color name="sdl_button_pressed_light">#9933b5e5</color>
+    <color name="sdl_button_separator_dark">#12ffffff</color>
+    <color name="sdl_button_separator_light">#25000000</color>
+    <item type="color" name="sdl_button_text_dark">@color/sdl_primary_text_holo_dark</item>
+    <item type="color" name="sdl_button_text_light">@color/sdl_primary_text_holo_light</item>
+    <color name="sdl_message_text_dark">#ffffffff</color>
+    <color name="sdl_message_text_light">#ff333333</color>
+    <color name="sdl_title_separator_dark">#ff0099cc</color>
+    <color name="sdl_title_separator_light">#ff33b5e5</color>
+    <color name="sdl_title_text_dark">#ff0099cc</color>
+    <color name="sdl_title_text_light">#ff33b5e5</color>
+    <color name="separator_color">#ffbbbbbb</color>
+    <color name="wallet_bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <color name="wallet_bright_foreground_holo_dark">#fff3f3f3</color>
+    <color name="wallet_bright_foreground_holo_light">#ff000000</color>
+    <color name="wallet_dim_foreground_disabled_holo_dark">#80bebebe</color>
+    <color name="wallet_dim_foreground_holo_dark">#ffbebebe</color>
+    <color name="wallet_dim_foreground_inverse_disabled_holo_dark">#80323232</color>
+    <color name="wallet_dim_foreground_inverse_holo_dark">#ff323232</color>
+    <color name="wallet_highlighted_text_holo_dark">#6633b5e5</color>
+    <color name="wallet_highlighted_text_holo_light">#6633b5e5</color>
+    <color name="wallet_hint_foreground_holo_dark">#ff808080</color>
+    <color name="wallet_hint_foreground_holo_light">#ff808080</color>
+    <color name="wallet_holo_blue_light">#ff33b5e5</color>
+    <color name="wallet_link_text_light">#ff0000ee</color>
+</resources>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/idEditTimeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@id/edit_alarm_hour"
+            style="@style/Husky.TextView.Thin.Legacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/husky_highlight"
+            android:padding="16.0dip"
+            android:text="Hour"
+            android:textColor="@color/husky_default_font"
+            android:textSize="@dimen/big_alarm_line"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@id/edit_alarm_am_pm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/edit_alarm_hour"
+            android:layout_marginBottom="12.0dip"
+            android:layout_marginLeft="-16.0dip"
+            android:layout_toRightOf="@id/edit_alarm_hour"
+            android:fontFamily="sans-serif-light"
+            android:text="AM"
+            android:textColor="@color/husky_default_font"
+            android:textSize="@dimen/normal_text_size"
+            android:visibility="gone"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@id/edit_alarm_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/edit_alarm_hour"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="12.0dip"
+            android:layout_marginLeft="8.0dip"
+            android:layout_toRightOf="@id/edit_alarm_am_pm"
+            android:background="@drawable/husky_highlight"
+            android:fontFamily="sans-serif-light"
+            android:gravity="right"
+            android:padding="8.0dip"
+            android:singleLine="true"
+            android:text="LABEL"
+            android:textColor="@color/husky_default_font_dim"
+            android:textSize="@dimen/normal_text_size"
+            android:textStyle="italic" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/idModeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/husky_round_full_rectangle_normal"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@id/item"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8.0dip"
+            android:orientation="horizontal"
+            android:padding="8.0dip" >
+
+            <TextView
+                android:id="@id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@id/expandable_toggle_button"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/edit_snooze"
+                android:textColor="@color/husky_default_font"
+                android:textSize="@dimen/header_text_size"
+                android:textStyle="italic" />
+
+            <ImageView
+                android:id="@id/expandable_toggle_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_expand" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@id/expandable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8.0dip"
+            android:weightSum="7.0" >
+
+	       <RadioGroup
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" >
+		        <RadioButton
+		            android:id="@+id/idRadioOn"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/txtTypeOpen" />
+		        <RadioButton
+		            android:id="@+id/idRadioOff"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/txtTypeClosed" />
+	        </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/idRepeatLayout"
+        android:layout_marginTop="16dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/husky_round_full_rectangle"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@id/item"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8.0dip"
+            android:orientation="horizontal"
+            android:padding="8.0dip" >
+
+            <TextView
+                android:id="@id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@id/expandable_toggle_button"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/edit_repeat_title"
+                android:textColor="@color/husky_default_font"
+                android:textSize="@dimen/header_text_size"
+                android:textStyle="italic" />
+
+            <ImageView
+                android:id="@id/expandable_toggle_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_expand" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@id/expandable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:padding="8.0dip"
+            android:weightSum="7.0" >
+
+            <RelativeLayout
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/husky_highlight"
+                android:gravity="center"
+                android:padding="4.0dip" >
+
+                <TextView
+                    android:id="@id/repeat_monday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:singleLine="true"
+                    android:text="@string/weekdays_formater_monday"
+                    android:textColor="@color/husky_default_font"
+                    android:textSize="@dimen/toggle_text_size"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@id/repeat_monday_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2.0dip"
+                    android:layout_alignLeft="@id/repeat_monday"
+                    android:layout_alignRight="@id/repeat_monday"
+                    android:layout_below="@id/repeat_monday"
+                    android:background="@color/husky_underline_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/husky_highlight"
+                android:gravity="center"
+                android:padding="4.0dip" >
+
+                <TextView
+                    android:id="@id/repeat_tuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:singleLine="true"
+                    android:text="@string/weekdays_formater_tuesday"
+                    android:textColor="@color/husky_default_font"
+                    android:textSize="@dimen/toggle_text_size"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@id/repeat_tuesday_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2.0dip"
+                    android:layout_alignLeft="@id/repeat_tuesday"
+                    android:layout_alignRight="@id/repeat_tuesday"
+                    android:layout_below="@id/repeat_tuesday"
+                    android:background="@color/husky_underline_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/husky_highlight"
+                android:gravity="center"
+                android:padding="4.0dip" >
+
+                <TextView
+                    android:id="@id/repeat_wendsday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:singleLine="true"
+                    android:text="@string/weekdays_formater_wednesday"
+                    android:textColor="@color/husky_default_font"
+                    android:textSize="@dimen/toggle_text_size"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@id/repeat_wendsday_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2.0dip"
+                    android:layout_alignLeft="@id/repeat_wendsday"
+                    android:layout_alignRight="@id/repeat_wendsday"
+                    android:layout_below="@id/repeat_wendsday"
+                    android:background="@color/husky_underline_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/husky_highlight"
+                android:gravity="center"
+                android:padding="4.0dip" >
+
+                <TextView
+                    android:id="@id/repeat_thursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:singleLine="true"
+                    android:text="@string/weekdays_formater_thursday"
+                    android:textColor="@color/husky_default_font"
+                    android:textSize="@dimen/toggle_text_size"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@id/repeat_thursday_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2.0dip"
+                    android:layout_alignLeft="@id/repeat_thursday"
+                    android:layout_alignRight="@id/repeat_thursday"
+                    android:layout_below="@id/repeat_thursday"
+                    android:background="@color/husky_underline_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/husky_highlight"
+                android:gravity="center"
+                android:padding="4.0dip" >
+
+                <TextView
+                    android:id="@id/repeat_friday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:singleLine="true"
+                    android:text="@string/weekdays_formater_friday"
+                    android:textColor="@color/husky_default_font"
+                    android:textSize="@dimen/toggle_text_size"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@id/repeat_friday_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2.0dip"
+                    android:layout_alignLeft="@id/repeat_friday"
+                    android:layout_alignRight="@id/repeat_friday"
+                    android:layout_below="@id/repeat_friday"
+                    android:background="@color/husky_underline_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/husky_highlight"
+                android:gravity="center"
+                android:padding="4.0dip" >
+
+                <TextView
+                    android:id="@id/repeat_saturday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:singleLine="true"
+                    android:text="@string/weekdays_formater_saturday"
+                    android:textColor="@color/husky_default_font"
+                    android:textSize="@dimen/toggle_text_size"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@id/repeat_saturday_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2.0dip"
+                    android:layout_alignLeft="@id/repeat_saturday"
+                    android:layout_alignRight="@id/repeat_saturday"
+                    android:layout_below="@id/repeat_saturday"
+                    android:background="@color/husky_underline_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/husky_highlight"
+                android:gravity="center"
+                android:padding="4.0dip" >
+
+                <TextView
+                    android:id="@id/repeat_sunday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:singleLine="true"
+                    android:text="@string/weekdays_formater_sunday"
+                    android:textColor="@color/husky_default_font"
+                    android:textSize="@dimen/toggle_text_size"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@id/repeat_sunday_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2.0dip"
+                    android:layout_alignLeft="@id/repeat_sunday"
+                    android:layout_alignRight="@id/repeat_sunday"
+                    android:layout_below="@id/repeat_sunday"
+                    android:background="@color/husky_underline_normal" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

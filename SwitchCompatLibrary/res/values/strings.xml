@@ -1,4 +1,4 @@
 <resources>
-    <string name="textOn">On</string>
-    <string name="textOff">Off</string>
+    <string name="textOn">ON</string>
+    <string name="textOff">OFF</string>
 </resources>

@@ -43,6 +43,8 @@ public class HomeActivity extends Activity
                 "周末睡觉结束", true));
         tasks.add(new TaskEntity(false, 0x00000000, Utils.getCalendar(12, 30),
                 "单次睡觉", false));
+        tasks.add(new TaskEntity(false, 0x0000007F, Utils.getCalendar(00, 30),
+                "睡觉", false));
         
         taskAdapter = new TaskListAdapter(this, tasks);
         taskListView.setAdapter(taskAdapter);

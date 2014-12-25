@@ -41,29 +41,9 @@ public class TaskListAdapter extends ArrayAdapter<TaskEntity>
         modeOn.setTextColor(task.isModeOn() ? this.getContext().getResources().getColor(R.color.GREEN)
                                             :  this.getContext().getResources().getColor(R.color.RED));
         modeOn.setText(modeOnDesc);
-
-        int repeat = task.getRepeat();
-        String repeatDesc = "";
-        // 0000, 0000, 0111,1111
-        if (repeat == 0x0000007F)
-            repeatDesc = this.getContext().getString(R.string.txtRepeatEveryday);
-        else if(repeat == 0x0000001F) //0000,0000,0001,1111
-            repeatDesc = this.getContext().getString(R.string.txtRepeatWeekday);
-        else if(repeat == 0)
-            repeatDesc = this.getContext().getString(R.string.txtRepeatNone);
-        else
-            {
-                String [] constDesc = this.getContext().getString(R.string.txtRepeatDesc).split(",");
-                repeatDesc = this.getContext().getString(R.string.txtRepeatDescPre);
-                for(int i = 0; i < 7; i++)
-                {
-                    if(((repeat >> i) & 0x1) == 0x1)
-                        repeatDesc += constDesc[i] + ",";
-                }
-                repeatDesc = repeatDesc.substring(0, repeatDesc.length()-1);
-            }
         //TextView txRepeat = (TextView)rowView.findViewById(R.id.idRepeat);
         TextView txRepeat = (TextView)rowView.findViewById(R.id.alarm_line_alarm_weekdays);
+        String repeatDesc = task.getRepeatStr(this.getContext());
         txRepeat.setText(repeatDesc);
 
         //TextView txTitle = (TextView)rowView.findViewById(R.id.idTaskDesc);

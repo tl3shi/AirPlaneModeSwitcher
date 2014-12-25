@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">飞行模式自动切换器</string>
+    <string name="app_name">飞行模式Switcher</string>
     <string name="belowtip">意见反馈：admin@tanglei.name</string>
     <string name="endtime_tip">关闭飞行模式</string>
     <string name="starttime_tip">开启飞行模式</string>

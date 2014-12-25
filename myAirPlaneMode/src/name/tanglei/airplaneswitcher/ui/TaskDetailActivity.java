@@ -3,13 +3,12 @@ package name.tanglei.airplaneswitcher.ui;
 import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.Utils;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
-
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -19,11 +18,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
 
-
-public class TaskDetailActivity extends SherlockFragmentActivity
+public class TaskDetailActivity extends FragmentActivity
 {
     public static String TAG = TaskDetailActivity.class.getName();
     
@@ -40,8 +36,8 @@ public class TaskDetailActivity extends SherlockFragmentActivity
         Log.i(TAG, "created");
         //this.setContentView(R.layout.task_detail);
         this.setContentView(R.layout.edit_alarm);
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        
+        this.getActionBar().setDisplayHomeAsUpEnabled(true);
+        alarm = (TaskEntity) this.getIntent().getSerializableExtra("alarmTask");
         alarm = alarm == null ? Utils.createTask(this) : alarm;
         
         int[] repeat_lines = new int[]{R.id.repeat_monday_line, R.id.repeat_tuesday_line, R.id.repeat_wendsday_line,
@@ -192,7 +188,7 @@ public class TaskDetailActivity extends SherlockFragmentActivity
       switch (paramMenuItem.getItemId())
       {
           case android.R.id.home: //click actionbar
-              Log.i(TAG, "Task saved: " + this.alarm.toString());
+              Log.i(TAG, "Task saved: " + this.alarm.toFormatString(this));
               finish(); //act as back
               return true;
               //Intent intent = new Intent(this, HomeActivity.class);

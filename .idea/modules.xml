@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AirPlaneModeSwitcher.iml" filepath="$PROJECT_DIR$/AirPlaneModeSwitcher.iml" />
       <module fileurl="file://$PROJECT_DIR$/SwitchCompatLibrary/SwitchCompatLibrary.iml" filepath="$PROJECT_DIR$/SwitchCompatLibrary/SwitchCompatLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/actionbarsherlock/actionbarsherlock.iml" />
       <module fileurl="file://$PROJECT_DIR$/myAirPlaneMode/myAirPlaneMode.iml" filepath="$PROJECT_DIR$/myAirPlaneMode/myAirPlaneMode.iml" />

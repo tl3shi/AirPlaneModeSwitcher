@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_list"
         android:layout_marginRight="@dimen/margin_list"
@@ -12,11 +8,12 @@
         android:paddingBottom="@dimen/padding_medium"
         android:paddingLeft="@dimen/padding_large"
         android:paddingRight="@dimen/padding_large"
-        android:paddingTop="0.0dip" >
+        android:descendantFocusability="blocksDescendants"
+        android:paddingTop="0.0dip">
 
         <TextView
             android:id="@+id/alarm_line_alarm_hour"
-            style="@style/Husky.TextView.Thin.Legacy"
+            android:fontFamily="sans-serif-light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -49,7 +46,7 @@
 
         <TextView
             android:id="@+id/alarm_line_snoozed"
-            style="@style/Husky.TextView.Thin.Legacy"
+            android:fontFamily="sans-serif-light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/alarm_line_alarm_hour"
@@ -112,6 +109,5 @@
             android:text="TextView"
             android:textColor="@color/husky_default_font_dim"
             android:textSize="@dimen/small_alarm_line" />
-    </RelativeLayout>
-
-</FrameLayout>
+</RelativeLayout>
+ 

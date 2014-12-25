@@ -30,7 +30,7 @@ public class FlightModeSwitcher extends Activity implements OnTimeChangedListene
 	//private RadioButton startBtn = null;
 	//private RadioButton stopBtn = null;
 	
-	private de.ankri.views.Switch btn_switch;
+	//private de.ankri.views.Switch btn_switch;
 	
 	private TimePicker startTimePicker = null;
 	private TimePicker stopTimePicker = null;
@@ -87,8 +87,8 @@ public class FlightModeSwitcher extends Activity implements OnTimeChangedListene
 //		}
 		
 		//btn_switch = (Switch) findViewById(R.id.btn_switch);
-		btn_switch.setChecked(config.isCurrentState());
-		btn_switch.setOnCheckedChangeListener(switchChangeListerner);
+		//btn_switch.setChecked(config.isCurrentState());
+		//btn_switch.setOnCheckedChangeListener(switchChangeListerner);
 		
 		startTimePicker.setOnTimeChangedListener(this);
 		stopTimePicker.setOnTimeChangedListener(this);
@@ -150,17 +150,17 @@ public class FlightModeSwitcher extends Activity implements OnTimeChangedListene
 	
 	public void startSchedule(boolean showTip)
 	{
-		Log.d(TAG, " auto flight mode start ? " + btn_switch.isChecked());
+		//Log.d(TAG, " auto flight mode start ? " + btn_switch.isChecked());
 		//currentState = btn_switch.isChecked();
-		config.setCurrentState(btn_switch.isChecked());
+		//config.setCurrentState(btn_switch.isChecked());
 		
-		if(btn_switch.isChecked())
-		{
-			Utils.startSchedule(this, config, showTip);
-		} else
-		{
-			Utils.stopSchedule(this, showTip);
-		}
+//		if(btn_switch.isChecked())
+//		{
+//			Utils.startSchedule(this, config, showTip);
+//		} else
+//		{
+//			Utils.stopSchedule(this, showTip);
+//		}
 		
 		setTimeToPreference();
 	}

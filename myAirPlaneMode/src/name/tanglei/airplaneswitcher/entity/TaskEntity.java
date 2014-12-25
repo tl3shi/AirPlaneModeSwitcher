@@ -1,21 +1,23 @@
 package name.tanglei.airplaneswitcher.entity;
 
+import java.io.Serializable;
+import java.util.Calendar;
+
+import name.tanglei.airplaneswitcher.R;
+import name.tanglei.airplaneswitcher.Utils;
 import android.content.Context;
 
-import java.util.Calendar;
-import java.util.Date;
-
-import name.tanglei.airplaneswitcher.Utils;
-
-public class TaskEntity
+public class TaskEntity implements Serializable  
 {
-    private boolean modeOn;
+	private static final long serialVersionUID = -4211414366117177910L;
+
+	private boolean modeOn;
     private int repeat; //repeat
     //private String time;
     private Calendar time;
     private String title;
     private boolean isActive;
-
+    
     @Override
     public String toString() {
         return "TaskEntity{" +
@@ -109,4 +111,41 @@ public class TaskEntity
     {
         return Utils.formatTime(context, this.time);
     }
+
+    public String getRepeatStr(Context context)
+    {
+        String repeatDesc = "";
+        // 0000, 0000, 0111,1111
+        if (repeat == 0x0000007F)
+            repeatDesc = context.getString(R.string.txtRepeatEveryday);
+        else if(repeat == 0x0000001F) //0000,0000,0001,1111
+            repeatDesc = context.getString(R.string.txtRepeatWeekday);
+        else if(repeat == 0)
+            repeatDesc = context.getString(R.string.txtRepeatNone);
+        else
+        {
+            String [] constDesc = context.getString(R.string.txtRepeatDesc).split(",");
+            repeatDesc = context.getString(R.string.txtRepeatDescPre);
+            for(int i = 0; i < 7; i++)
+            {
+                if(((repeat >> i) & 0x1) == 0x1)
+                    repeatDesc += constDesc[i] + ",";
+            }
+            repeatDesc = repeatDesc.substring(0, repeatDesc.length()-1);
+        }
+        return repeatDesc;
+    }
+
+    public String toFormatString(Context context)
+    {
+        return "TaskEntity{" +
+                "modeOn=" + modeOn +
+                ", repeat=" + getRepeatStr(context) +
+                ", time='" + getTimeStr(context) + '\'' +
+                ", title='" + title + '\'' +
+                ", isActive=" + isActive +
+                '}';
+    }
+
+
 }

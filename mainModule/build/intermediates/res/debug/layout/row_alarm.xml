@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_list"
+        android:layout_marginRight="@dimen/margin_list"
+        android:background="@drawable/husky_round_full_rectangle_normal"
+        android:paddingBottom="@dimen/padding_medium"
+        android:paddingLeft="@dimen/padding_large"
+        android:paddingRight="@dimen/padding_large"
+        android:descendantFocusability="blocksDescendants"
+        android:paddingTop="0.0dip">
+
+        <TextView
+            android:id="@+id/alarm_line_alarm_hour"
+            android:fontFamily="sans-serif-light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Hour"
+            android:textColor="@color/husky_default_font"
+            android:textSize="@dimen/big_alarm_line"
+            android:textStyle="normal" />
+
+        <CheckBox
+            android:id="@+id/alarm_line_alarm_is_active"
+            android:layout_width="90.0dip"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/alarm_line_alarm_hour"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/alarm_line_alarm_hour"
+            android:button="@drawable/ic_switch" />
+
+        <TextView
+            android:id="@+id/alarm_line_am_pm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/alarm_line_alarm_hour"
+            android:layout_marginTop="@dimen/padding_large"
+            android:layout_toRightOf="@id/alarm_line_alarm_hour"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/husky_default_font"
+            android:textSize="@dimen/normal_text_size"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/alarm_line_snoozed"
+            android:fontFamily="sans-serif-light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/alarm_line_alarm_hour"
+            android:layout_alignTop="@id/alarm_line_alarm_hour"
+            android:gravity="center_vertical"
+            android:text="@string/alarm_line_snoozed"
+            android:textColor="@color/husky_default_font"
+            android:textSize="@dimen/big_alarm_line" 
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/alarm_line_alarm_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/alarm_line_alarm_is_active"
+            android:layout_alignTop="@id/alarm_line_alarm_wake_type"
+            android:layout_below="@id/alarm_line_alarm_hour"
+            android:layout_marginLeft="8.0dip"
+            android:layout_toRightOf="@id/alarm_line_alarm_weekdays"
+            android:fontFamily="sans-serif-light"
+            android:gravity="right"
+            android:singleLine="true"
+            android:text="Alarm Name"
+            android:textColor="@color/husky_default_font_dim"
+            android:textSize="@dimen/small_alarm_line"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/alarm_line_is_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/alarm_line_alarm_hour"
+            android:layout_below="@id/alarm_line_alarm_hour"
+            android:fontFamily="sans-serif-condensed"
+            android:paddingRight="8.0dip"
+            android:text="@string/alarm_line_is_sms"
+            android:textColor="@color/husky_default_font"
+            android:textSize="@dimen/small_alarm_line" 
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/alarm_line_alarm_wake_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/alarm_line_alarm_hour"
+            android:layout_toRightOf="@id/alarm_line_is_sms"
+            android:fontFamily="sans-serif-condensed"
+            android:paddingRight="8.0dip"
+            android:text="PUZZLE"
+            android:textColor="@color/husky_default_font"
+            android:textSize="@dimen/small_alarm_line" />
+
+        <TextView
+            android:id="@+id/alarm_line_alarm_weekdays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/alarm_line_alarm_wake_type"
+            android:layout_toRightOf="@id/alarm_line_alarm_wake_type"
+            android:fontFamily="sans-serif-condensed"
+            android:text="TextView"
+            android:textColor="@color/husky_default_font_dim"
+            android:textSize="@dimen/small_alarm_line" />
+</RelativeLayout>
+ <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/layout/row_alarm.xml -->

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/layoutLine1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:paddingTop="10dp" >
+        
+        <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="40sp"
+	        android:layout_alignParentLeft="true"
+	        android:text="@string/txtTime"
+        />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/txtAction"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+    
+    
+    <TextView
+            android:id="@+id/idModeTypeTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutLine1"
+            android:layout_marginTop="15dp"
+            android:text="@string/txtModeTypeTip"
+            android:textSize="20sp" />
+    <RadioGroup
+            android:layout_toRightOf="@id/idModeTypeTip"
+            android:layout_below="@id/layoutLine1"
+             android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        <RadioButton
+            android:id="@+id/idRadioOn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtTypeOpen" />
+         
+        <RadioButton
+            android:id="@+id/idRadioOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtTypeClosed" />
+        </RadioGroup>
+    
+    
+    <TextView
+            android:id="@+id/idRepeatTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idModeTypeTip"
+            android:layout_marginTop="25dp"
+            android:text="@string/txtRepeat"
+            android:textSize="20sp" />
+    
+    <LinearLayout
+        android:id="@+id/layoutWeek"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idRepeatTip"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp" >
+        
+        <CheckBox     
+		    android:id="@+id/checkMon"    
+		    android:layout_width="fill_parent"    
+		    android:layout_height="wrap_content"    
+		    android:text="@string/monday"/>
+        <CheckBox     
+            android:id="@+id/checkTue"    
+            android:layout_width="fill_parent"    
+            android:layout_height="wrap_content"    
+            android:text="@string/tuesday"/>
+        <CheckBox     
+            android:id="@+id/checkWed"    
+            android:layout_width="fill_parent"    
+            android:layout_height="wrap_content"    
+            android:text="@string/wednesday"/>
+        <CheckBox     
+            android:id="@+id/checkThu"    
+            android:layout_width="fill_parent"    
+            android:layout_height="wrap_content"    
+            android:text="@string/thursday"/>
+        <CheckBox     
+            android:id="@+id/checkFri"    
+            android:layout_width="fill_parent"    
+            android:layout_height="wrap_content"    
+            android:text="@string/friday"/>
+        <CheckBox     
+            android:id="@+id/checkSat"    
+            android:layout_width="fill_parent"    
+            android:layout_height="wrap_content"    
+            android:text="@string/saturday"/>
+        <CheckBox     
+            android:id="@+id/checkSun"    
+            android:layout_width="fill_parent"    
+            android:layout_height="wrap_content"    
+            android:text="@string/sunday"/>
+    </LinearLayout>
+</RelativeLayout><!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/layout/task_detail.xml -->

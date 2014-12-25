@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AirPlaneModeSwitcher.iml" filepath="$PROJECT_DIR$/AirPlaneModeSwitcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mainModule/mainModule.iml" filepath="$PROJECT_DIR$/mainModule/mainModule.iml" />
+    </modules>
+  </component>
+</project>
+

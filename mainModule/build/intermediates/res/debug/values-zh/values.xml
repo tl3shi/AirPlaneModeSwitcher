@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values-zh/strings.xml -->
+    <eat-comment/>
+    <string name="weekdays_formater_everyday">每天</string>
+    <string name="weekdays_formater_friday">五</string>
+    <string name="weekdays_formater_monday">周一</string>
+    <string name="weekdays_formater_saturday">六</string>
+    <string name="weekdays_formater_sunday">日</string>
+    <string name="weekdays_formater_thursday">四</string>
+    <string name="weekdays_formater_tuesday">周二</string>
+    <string name="weekdays_formater_wednesday">三</string>
+</resources>

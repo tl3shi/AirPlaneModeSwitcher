@@ -1,3 +1,5 @@
 /Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/classes/debug
+/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/pre-dexed/debug/ormlite-android-4.48-82b9f75d5c372113d28bae6080fbb7b632b21a15.jar
+/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/pre-dexed/debug/ormlite-core-4.48-64dc38d6de84928ce6e2c8c13444d78c46183e4e.jar
 /Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/pre-dexed/debug/classes-483e641cdcda36923fcb0647ba3a459a8c5d0d88.jar
 /Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/pre-dexed/debug/support-v4-18.0.0-876f7c0fe81dc577a27afff4c10d5b3123da8840.jar

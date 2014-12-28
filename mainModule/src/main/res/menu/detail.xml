@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:mainModule="http://schemas.android.com/apk/res-auto">
+
+<item
+    android:id="@+id/id_action_giveup"
+    android:orderInCategory="100"
+    mainModule:showAsAction="never"
+    android:title="@string/action_giveup"/>
+</menu>

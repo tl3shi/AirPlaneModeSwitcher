@@ -1,62 +1,123 @@
 package name.tanglei.airplaneswitcher.ui;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import com.j256.ormlite.dao.Dao;
 
 public class TaskListAdapter extends ArrayAdapter<TaskEntity>
 {
-    public TaskListAdapter(Activity activity, List<TaskEntity> list)
-    {
+    private final String  TAG = TaskListAdapter.class.getName();
+
+    private Dao<TaskEntity, Integer> taskDao;
+
+    public TaskListAdapter(Activity activity, List<TaskEntity> list, Dao<TaskEntity, Integer> taskDao) {
         super(activity, 0, list);
+        this.taskDao = taskDao;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        LayoutInflater inflater = ((Activity) this.getContext())
-                .getLayoutInflater();
-        //rowView = inflater.inflate(R.layout.task_item, null);
-        View rowView = inflater.inflate(R.layout.row_alarm, null);
-        TaskEntity task = this.getItem(position);
+        TaskViewHolder holder;
+        final TaskEntity task = this.getItem(position);
+        if(convertView == null)
+        {
+            LayoutInflater inflater = ((Activity) this.getContext())
+                    .getLayoutInflater();
+            //convertView = inflater.inflate(R.layout.task_item, null);
+            convertView  = inflater.inflate(R.layout.row_alarm, null);
+            holder = new TaskViewHolder();
 
-        TextView timeView = (TextView) rowView
-        //        .findViewById(R.id.idTime);
+            holder.timeView = (TextView) convertView
+                    //        .findViewById(R.id.idTime);
                     .findViewById(R.id.alarm_line_alarm_hour);
-        timeView.setText(task.getTimeStr(this.getContext()));
+            holder.modeOn = (TextView) convertView
+                    //.findViewById(R.id.idModeOn);
+                    .findViewById(R.id.alarm_line_alarm_wake_type);
+            //TextView txRepeat = (TextView)rowView.findViewById(R.id.idRepeat);
+            holder.txRepeat = (TextView) convertView.findViewById(R.id.alarm_line_alarm_weekdays);
+            //TextView txTitle = (TextView)rowView.findViewById(R.id.idTaskDesc);
+            holder.txTitle = (TextView) convertView.findViewById(R.id.alarm_line_alarm_name);
+            //ToggleButton tgButton = (ToggleButton)rowView.findViewById(R.id.idTgButton);
+            //tgButton.setChecked(task.isActive());
+            holder.chk = (CheckBox) convertView.findViewById(R.id.alarm_line_alarm_is_active);
+            holder.chk.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    CheckBox c = (CheckBox) v;
+                    if(c.isChecked())
+                        task.setActive(true);
+                    else
+                        task.setActive(false);
+                    Log.i(TAG, "active " + task.getId() + " : " + task.isActive());
+                    try {
+                        taskDao.update(task);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        Log.i(TAG, "update task failed, " + e.toString());
+                    }
+                }
+            });
+            convertView.setTag(holder);
+        }else
+        {
+            holder = (TaskViewHolder) convertView.getTag();
+        }
 
-        TextView modeOn = (TextView) rowView
-                //.findViewById(R.id.idModeOn);
-                .findViewById(R.id.alarm_line_alarm_wake_type);
+        holder.timeView.setText(task.getTimeStr(this.getContext()));
         String modeOnDesc = task.isModeOn() ? this.getContext().getString(R.string.txtTypeOpen)
-                                    : this.getContext().getString(R.string.txtTypeClosed);
-        modeOn.setTextColor(task.isModeOn() ? this.getContext().getResources().getColor(R.color.GREEN)
-                                            :  this.getContext().getResources().getColor(R.color.RED));
-        modeOn.setText(modeOnDesc);
-        //TextView txRepeat = (TextView)rowView.findViewById(R.id.idRepeat);
-        TextView txRepeat = (TextView)rowView.findViewById(R.id.alarm_line_alarm_weekdays);
+                : this.getContext().getString(R.string.txtTypeClosed);
+        holder.modeOn.setTextColor(task.isModeOn() ? this.getContext().getResources().getColor(R.color.GREEN)
+                : this.getContext().getResources().getColor(R.color.RED));
+        holder.modeOn.setText(modeOnDesc);
         String repeatDesc = task.getRepeatStr(this.getContext());
-        txRepeat.setText(repeatDesc);
+        holder.txRepeat.setText(repeatDesc);
+        holder.txTitle.setText(task.getTitle());
+//        holder.chk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+//        {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+//            {
+//                if(isChecked)
+//                    task.setActive(true);
+//                else
+//                    task.setActive(false);
+//                Log.i(TAG, "active " + task.getId() + " : " + task.isActive());
+//                try {
+//                    taskDao.update(task);
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                    Log.i(TAG, "update task failed, " + e.toString());
+//                }
+//            }
+//        });
+        //if use checkedChangeListener, setChecked should after addListener, more about: listview, view holder
+        holder.chk.setChecked(task.isActive());
+        return convertView;
+    }
 
-        //TextView txTitle = (TextView)rowView.findViewById(R.id.idTaskDesc);
-        TextView txTitle = (TextView)rowView.findViewById(R.id.alarm_line_alarm_name);
-        txTitle.setText(task.getTitle());
-
-        //ToggleButton tgButton = (ToggleButton)rowView.findViewById(R.id.idTgButton);
-        //tgButton.setChecked(task.isActive());
-
-        CheckBox chk = (CheckBox)rowView.findViewById(R.id.alarm_line_alarm_is_active);
-        chk.setChecked(task.isActive());
-
-        return rowView;
+    static class TaskViewHolder
+    {
+        TextView timeView;
+        TextView modeOn;
+        TextView txRepeat;
+        TextView txTitle;
+        CheckBox chk;
     }
 
 

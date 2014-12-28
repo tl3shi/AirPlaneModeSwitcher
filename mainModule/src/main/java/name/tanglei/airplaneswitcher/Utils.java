@@ -1,14 +1,7 @@
 package name.tanglei.airplaneswitcher;
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
-import name.tanglei.airplaneswitcher.entity.TaskEntity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,8 +9,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.PowerManager;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.Toast;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+import name.tanglei.airplaneswitcher.entity.TaskEntity;
+
 
 public class Utils
 {
@@ -241,17 +242,34 @@ public class Utils
 	}
 	
 	public static void showAlertDialog(Context context, String title,
-			String content, DialogInterface.OnClickListener listener)
+			String content, DialogInterface.OnClickListener okListener)
 	{
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 				context);
+        alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
 		alertDialogBuilder.setTitle(title);
 		alertDialogBuilder.setMessage(content);
 		alertDialogBuilder.setCancelable(true);
 		alertDialogBuilder.setPositiveButton(
-				context.getString(android.R.string.ok), listener);
+				context.getString(android.R.string.ok), okListener);
 		alertDialogBuilder.show();
 	}
+
+    public static void showAlertDialog(Context context, String title,
+    String content, DialogInterface.OnClickListener positiveListener,
+                    DialogInterface.OnClickListener negativeListener)
+    {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
+        alertDialogBuilder.setTitle(title);
+        alertDialogBuilder.setMessage(content);
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.setPositiveButton(
+                context.getString(android.R.string.ok), positiveListener);
+        alertDialogBuilder.setNegativeButton(context.getString(android.R.string.cancel), negativeListener);
+        alertDialogBuilder.show();
+    }
 	
 	public static void sendBroadcastNow(Context context, boolean onairplaemode)
 	{
@@ -260,6 +278,7 @@ public class Utils
 		startIntent.putExtra("useraction", true);
 		context.sendBroadcast(startIntent);
 	}
+
 	public final static boolean isScreenLocked(Context c) {
         /*
 		//does not take effeckt
@@ -280,7 +299,8 @@ public class Utils
 	
 	public static TaskEntity createTask(Context context)
     {
-	    return new TaskEntity(true, 0, Calendar.getInstance(Locale.getDefault()),
+        Calendar time = Calendar.getInstance(Locale.getDefault());
+	    return new TaskEntity(true, 0, time.get(Calendar.HOUR_OF_DAY), time.get(Calendar.MINUTE),
 	            context.getResources().getString(R.string.task_default_name), true);
     }
 

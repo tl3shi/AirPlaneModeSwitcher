@@ -94,4 +94,7 @@
     <string name="alertDialog_negative">取消</string>
     <string name="alertDialogTaskInput_title">请输入任务名称</string>
     <string name="alertDialogTimeChoose_title">请选择任务时间</string>
+    <string name="action_giveup">放弃更改</string>
+    <string name="home_task_delete_alert_title">警告!</string>
+    <string name="home_task_delete_alert_content">确认要删除该任务记录?</string>
 </resources>

@@ -2,28 +2,40 @@ package name.tanglei.airplaneswitcher.ui;
 
 import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.Utils;
+import name.tanglei.airplaneswitcher.dao.DatabaseHelper;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
+
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
-public class TaskDetailActivity extends FragmentActivity
+import java.sql.SQLException;
+
+
+public class TaskDetailActivity extends OrmLiteBaseActivity<DatabaseHelper>//FragmentActivity
 {
     public static String TAG = TaskDetailActivity.class.getName();
     
-    private TaskEntity alarm;
+    private TaskEntity editAlarm;//current edit alarm
+    private TaskEntity oldAlarm; // the
+
     private TextView txtTimeView;
     private TextView txtTaskName;
     private RadioButton radioOn;
@@ -37,8 +49,11 @@ public class TaskDetailActivity extends FragmentActivity
         //this.setContentView(R.layout.task_detail);
         this.setContentView(R.layout.edit_alarm);
         this.getActionBar().setDisplayHomeAsUpEnabled(true);
-        alarm = (TaskEntity) this.getIntent().getSerializableExtra("alarmTask");
-        alarm = alarm == null ? Utils.createTask(this) : alarm;
+        oldAlarm = (TaskEntity) this.getIntent().getSerializableExtra("alarmTask");
+        if(oldAlarm != null)
+            this.editAlarm = new TaskEntity(oldAlarm);
+        else
+            this.editAlarm = Utils.createTask(this);
         
         int[] repeat_lines = new int[]{R.id.repeat_monday_line, R.id.repeat_tuesday_line, R.id.repeat_wendsday_line,
                 R.id.repeat_thursday_line, R.id.repeat_friday_line, R.id.repeat_saturday_line, R.id.repeat_sunday_line};
@@ -61,14 +76,7 @@ public class TaskDetailActivity extends FragmentActivity
         radioOn = (RadioButton) this.findViewById(R.id.idRadioOn);
         radioOff = (RadioButton) this.findViewById(R.id.idRadioOff);
 
-        this.updateView();
-    }
-
-    private void updateView()
-    {
-        txtTimeView.setText(this.alarm.getTimeStr(this));
-        txtTaskName.setText(this.alarm.getTitle());
-        if(this.alarm.isModeOn())
+        if(this.editAlarm.isModeOn())
         {
             radioOn.setChecked(true);
             radioOff.setChecked(false);
@@ -77,8 +85,10 @@ public class TaskDetailActivity extends FragmentActivity
             radioOn.setChecked(false);
             radioOff.setChecked(true);
         }
+        txtTimeView.setText(this.editAlarm.getTimeStr(this));
+        txtTaskName.setText(this.editAlarm.getTitle());
     }
-    
+
     private void setTabSelected(View paramView, TextView paramTextView, boolean paramBoolean)
     {
       if (paramBoolean)
@@ -105,7 +115,7 @@ public class TaskDetailActivity extends FragmentActivity
         @Override
         public void onClick(View v)
         {
-            if (Utils.GetWeekdaysFromInt(TaskDetailActivity.this.alarm.getWeekdays(), paramInt))
+            if (Utils.GetWeekdaysFromInt(TaskDetailActivity.this.editAlarm.getWeekdays(), paramInt))
             {
                 paramFrameLayout.setBackgroundColor(TaskDetailActivity.this.getResources().getColor(R.color.husky_underline_normal));
                 paramTextView.setTextColor(TaskDetailActivity.this.getResources().getColor(R.color.husky_underline_normal));
@@ -114,7 +124,8 @@ public class TaskDetailActivity extends FragmentActivity
                 paramFrameLayout.setBackgroundColor(TaskDetailActivity.this.getResources().getColor(R.color.husky_underline_selected));
                 paramTextView.setTextColor(TaskDetailActivity.this.getResources().getColor(R.color.husky_underline_selected));
             }
-            TaskDetailActivity.this.alarm.toggleWeekday(this.paramInt);
+            TaskDetailActivity.this.editAlarm.toggleWeekday(paramInt);
+            //Log.i(TAG, "weekday: " + TaskDetailActivity.this.editAlarm.toFormatString(TaskDetailActivity.this));
         }
     }
 
@@ -136,8 +147,8 @@ public class TaskDetailActivity extends FragmentActivity
             timeDialog.show();*/
             final TimePicker timePicker = new TimePicker(TaskDetailActivity.this);
             timePicker.setIs24HourView(true);
-            timePicker.setCurrentHour(TaskDetailActivity.this.alarm.getHour());
-            timePicker.setCurrentMinute(TaskDetailActivity.this.alarm.getMinute());
+            timePicker.setCurrentHour(TaskDetailActivity.this.editAlarm.getHour());
+            timePicker.setCurrentMinute(TaskDetailActivity.this.editAlarm.getMinute());
             new AlertDialog.Builder(TaskDetailActivity.this).setTitle(TaskDetailActivity.this.getString(R.string.alertDialogTimeChoose_title)).setIcon(android.R.drawable.ic_dialog_info)
                     .setView(timePicker).setPositiveButton(TaskDetailActivity.this.getString(R.string.alertDialog_positive),
                     new DialogInterface.OnClickListener()
@@ -145,8 +156,9 @@ public class TaskDetailActivity extends FragmentActivity
                         @Override
                         public void onClick(DialogInterface dialog, int which)
                         {
-                            TaskDetailActivity.this.alarm.setTime(Utils.getCalendar(timePicker.getCurrentHour(), timePicker.getCurrentMinute()));
-                            TaskDetailActivity.this.updateView();
+                            TaskDetailActivity.this.editAlarm.setTime(timePicker.getCurrentHour(), timePicker.getCurrentMinute());
+                            TaskDetailActivity.this.txtTimeView.setText(TaskDetailActivity.this.editAlarm.getTimeStr(TaskDetailActivity.this));
+
                         }
                     }
             ).setNegativeButton(TaskDetailActivity.this.getString(R.string.alertDialog_negative), null).show();
@@ -167,8 +179,8 @@ public class TaskDetailActivity extends FragmentActivity
                         @Override
                         public void onClick(DialogInterface dialog, int which)
                         {
-                            TaskDetailActivity.this.alarm.setTitle(input.getText().toString());
-                            TaskDetailActivity.this.updateView();
+                            TaskDetailActivity.this.editAlarm.setTitle(input.getText().toString());
+                            TaskDetailActivity.this.txtTaskName.setText(TaskDetailActivity.this.editAlarm.getTitle());
                         }
                     }
             ).setNegativeButton(TaskDetailActivity.this.getString(R.string.alertDialog_negative), null).show();
@@ -177,7 +189,7 @@ public class TaskDetailActivity extends FragmentActivity
 
     private void setUpRepeat(FrameLayout paramFrameLayout, TextView paramTextView, int paramInt)
     {
-      setTabSelected(paramFrameLayout, paramTextView, Utils.GetWeekdaysFromInt(this.alarm.getWeekdays(), paramInt));
+      setTabSelected(paramFrameLayout, paramTextView, Utils.GetWeekdaysFromInt(this.editAlarm.getWeekdays(), paramInt));
       assert (paramFrameLayout.getParent() != null);
       RelativeLayout relativeLayout = (RelativeLayout) paramFrameLayout.getParent();
       relativeLayout.setOnClickListener(new RepeatOnClickListener(paramFrameLayout, paramTextView, paramInt));
@@ -188,17 +200,51 @@ public class TaskDetailActivity extends FragmentActivity
       switch (paramMenuItem.getItemId())
       {
           case android.R.id.home: //click actionbar
-              Log.i(TAG, "Task saved: " + this.alarm.toFormatString(this));
+              Log.i(TAG, "Task saved: " + this.editAlarm.toFormatString(this));
+              this.saveOrUpdate();
               finish(); //act as back
               return true;
               //Intent intent = new Intent(this, HomeActivity.class);
               //this.startActivity(intent);
+          case R.id.id_action_giveup:
+              Log.i(TAG, "Task give up");
+              finish();
           default:
             return true;
       
       }
     }
-    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        this.getMenuInflater().inflate(R.menu.detail, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void saveOrUpdate()
+    {
+        this.editAlarm.setModeOn(radioOn.isChecked());
+        Log.i(TAG, "save or update id: " + this.editAlarm.getId());
+        Log.i(TAG, "old alarm: " + this.oldAlarm);
+        Log.i(TAG,  "new alarm: " + this.editAlarm);
+        if(this.oldAlarm == null) //save
+        {
+            try {
+                getHelper().getTaskDao().create(this.editAlarm);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                Log.e(TAG, "save new task failed ! " + e.toString());
+            }
+        }else //update
+        {
+            try {
+                getHelper().getTaskDao().update(this.editAlarm);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                Log.e(TAG, "update new task failed ! " + e.toString());
+            }
+        }
+    }
+
     @Override
     public void onDestroy()
     {

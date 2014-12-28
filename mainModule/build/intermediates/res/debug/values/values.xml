@@ -667,6 +667,7 @@
     <string name="aboutOkButton">确定</string>
     <string name="aboutTitle">关于</string>
     <string name="action_add">添加</string>
+    <string name="action_giveup">放弃更改</string>
     <string name="action_save">保存任务</string>
     <string name="action_settings">Settings</string>
     <string name="airplanemode_action_title">飞行模式切换中</string>
@@ -703,6 +704,8 @@
     </string>
     <string name="helpOkButton">确定</string>
     <string name="helpTitle">帮助</string>
+    <string name="home_task_delete_alert_content">确认要删除该任务记录?</string>
+    <string name="home_task_delete_alert_title">警告!</string>
     <string name="menuAbout">关于</string>
     <string name="menuHelp">帮助</string>
     <string name="menuSetOffRightnow">立即关闭飞行模式</string>

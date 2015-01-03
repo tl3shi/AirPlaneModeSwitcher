@@ -1,6 +1,5 @@
 package name.tanglei.airplaneswitcher.ui;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,14 +15,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
-import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import name.tanglei.airplaneswitcher.R;
-import name.tanglei.airplaneswitcher.Utils;
+import name.tanglei.airplaneswitcher.ReceivedAction;
+import name.tanglei.airplaneswitcher.utils.AirplaneModeUtils;
+import name.tanglei.airplaneswitcher.utils.TaskManagerUtils;
+import name.tanglei.airplaneswitcher.utils.Utils;
 import name.tanglei.airplaneswitcher.dao.DatabaseHelper;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
 
@@ -36,6 +37,7 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
     private ArrayAdapter<TaskEntity> taskAdapter;
     private ListView taskListView;
     private List<TaskEntity> tasks =  new ArrayList<TaskEntity>();
+    private boolean currentAirplaneOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -112,6 +114,16 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
         return super.onCreateOptionsMenu(menu);
     }
 
+    public boolean onPrepareOptionsMenu(Menu menu)
+    {
+        currentAirplaneOn = AirplaneModeUtils.isAirplaneModeOn(this);
+        if(currentAirplaneOn)//menu.findItem(MENU_TOGGLE_RIGHTNOW).getTitle().equals(getString(R.string.menuSetOffRightnow)))
+            menu.findItem(R.id.id_action_toggle).setTitle(R.string.menuSetOffRightnow);
+        else
+            menu.findItem(R.id.id_action_toggle).setTitle(R.string.menuSetOnRightnow);
+        return true;
+    }
+
     //menu
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -122,6 +134,14 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
             case R.id.id_action_settings:
                 //Toast.makeText(this, "Settings TODO", Toast.LENGTH_SHORT).show();
                 Utils.showToast(this, "Settings TODO");
+                break;
+            case R.id.id_action_toggle:
+                Intent i = new Intent(this, ReceivedAction.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.putExtra(ReceivedAction.ACTION_TAG, !currentAirplaneOn);
+                i.putExtra(ReceivedAction.USERACTION_TAG, true);
+                this.startActivity(i);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -139,7 +159,7 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
             Log.i(TAG, "ids:  " + ids);
             this.tasks.clear();
             this.tasks.addAll(listIndb);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             Log.e(TAG, "query all tasks failed! " + e.toString());
             this.tasks.clear();
@@ -162,13 +182,10 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
             public void onClick(DialogInterface dialog, int which)
             {
                 TaskEntity task = tasks.get(pos);
-                try {
-                    HomeActivity.this.getHelper().getTaskDao().delete(task);
-                    HomeActivity.this.queryAllTasks();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    Log.e(TAG, "delete task failed! " + e.toString());
-                }
+                HomeActivity.this.getHelper().getTaskDao().delete(task);
+                task.setActive(false); //delete alarm task
+                TaskManagerUtils.addOrUpdateTask(HomeActivity.this.getApplicationContext(), task, false);
+                HomeActivity.this.queryAllTasks();
             }
         }, new DialogInterface.OnClickListener() {
             @Override

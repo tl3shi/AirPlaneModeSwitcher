@@ -1134,6 +1134,7 @@ containing a value of this type.
         public static final int id_action_add=0x7f090186;
         public static final int id_action_giveup=0x7f090185;
         public static final int id_action_settings=0x7f090187;
+        public static final int id_action_toggle=0x7f090188;
         public static final int ifRoom=0x7f090144;
         public static final int image=0x7f09008c;
         public static final int increment=0x7f09008d;

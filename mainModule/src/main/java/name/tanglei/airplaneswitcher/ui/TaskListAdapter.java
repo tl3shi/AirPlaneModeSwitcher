@@ -5,6 +5,9 @@ import java.util.List;
 
 import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
+import name.tanglei.airplaneswitcher.utils.TaskManagerUtils;
+import name.tanglei.airplaneswitcher.utils.Utils;
+
 import android.app.Activity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,14 +19,15 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 public class TaskListAdapter extends ArrayAdapter<TaskEntity>
 {
     private final String  TAG = TaskListAdapter.class.getName();
 
-    private Dao<TaskEntity, Integer> taskDao;
+    private RuntimeExceptionDao<TaskEntity, Integer> taskDao;
 
-    public TaskListAdapter(Activity activity, List<TaskEntity> list, Dao<TaskEntity, Integer> taskDao) {
+    public TaskListAdapter(Activity activity, List<TaskEntity> list, RuntimeExceptionDao<TaskEntity, Integer> taskDao) {
         super(activity, 0, list);
         this.taskDao = taskDao;
     }
@@ -61,16 +65,13 @@ public class TaskListAdapter extends ArrayAdapter<TaskEntity>
                 {
                     CheckBox c = (CheckBox) v;
                     if(c.isChecked())
+                    {
                         task.setActive(true);
-                    else
+                    }else
                         task.setActive(false);
                     Log.i(TAG, "active " + task.getId() + " : " + task.isActive());
-                    try {
-                        taskDao.update(task);
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                        Log.i(TAG, "update task failed, " + e.toString());
-                    }
+                    taskDao.update(task);
+                    TaskManagerUtils.addOrUpdateTask(getContext(), task, task.isActive());
                 }
             });
             convertView.setTag(holder);

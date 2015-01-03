@@ -22,6 +22,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.TimePicker.OnTimeChangedListener;
 
+import name.tanglei.airplaneswitcher.utils.AirplaneModeUtils;
+import name.tanglei.airplaneswitcher.utils.Utils;
+
 public class FlightModeSwitcher extends Activity implements OnTimeChangedListener
 {
 	private static final String TAG = FlightModeSwitcher.class.getName();
@@ -124,7 +127,7 @@ public class FlightModeSwitcher extends Activity implements OnTimeChangedListene
 
 	public void onResume()
 	{
-		currentAirplaneOn = AirplaneModeService.isAirplaneModeOn(this);
+		currentAirplaneOn = AirplaneModeUtils.isAirplaneModeOn(this);
 		super.onResume();
 	}
 	
@@ -207,7 +210,7 @@ public class FlightModeSwitcher extends Activity implements OnTimeChangedListene
 	
 	public boolean onPrepareOptionsMenu(Menu menu) 
 	{
-		currentAirplaneOn = AirplaneModeService.isAirplaneModeOn(this);
+		currentAirplaneOn = AirplaneModeUtils.isAirplaneModeOn(this);
 		if(currentAirplaneOn)//menu.findItem(MENU_TOGGLE_RIGHTNOW).getTitle().equals(getString(R.string.menuSetOffRightnow)))
 			menu.findItem(MENU_TOGGLE_RIGHTNOW).setTitle(R.string.menuSetOffRightnow);
 		else

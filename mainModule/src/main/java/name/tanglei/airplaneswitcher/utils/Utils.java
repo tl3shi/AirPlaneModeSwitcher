@@ -1,4 +1,4 @@
-package name.tanglei.airplaneswitcher;
+package name.tanglei.airplaneswitcher.utils;
 
 import android.app.AlarmManager;
 import android.app.AlertDialog;
@@ -17,6 +17,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import name.tanglei.airplaneswitcher.AlarmReceiver;
+import name.tanglei.airplaneswitcher.Config;
+import name.tanglei.airplaneswitcher.FlightModeSwitcher;
+import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
 
 
@@ -164,7 +168,8 @@ public class Utils
 		
 		return true;
 	}
-	
+
+
 	public static boolean stopSchedule(Context context, boolean showTip)
 	{
 		AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -180,7 +185,7 @@ public class Utils
 		alarmManager.cancel(startPendingIntent);
 		alarmManager.cancel(endPendingIntent);
 		
-		AirplaneModeService.setAirplane(context, false);
+		AirplaneModeUtils.setAirplane(context, false);
 		if(showTip)
 			Toast.makeText(context, context.getString(R.string.setup_off),
 					Toast.LENGTH_SHORT).show();
@@ -214,6 +219,19 @@ public class Utils
     {
         SimpleDateFormat formatter = new SimpleDateFormat(context.getString(R.string.timeFormat), Locale.getDefault());
         return formatter.format(time.getTime());
+    }
+
+    public static String formatDateTime(Context context, Calendar time)
+    {
+        SimpleDateFormat formatter = new SimpleDateFormat(context.getString(R.string.datetimeFormat), Locale.getDefault());
+        return formatter.format(time.getTime());
+    }
+
+    public static String formatDateTime(Context context, long mini)
+    {
+        Date date = new Date(mini);
+        SimpleDateFormat formatter = new SimpleDateFormat(context.getString(R.string.datetimeFormat), Locale.getDefault());
+        return formatter.format(date);
     }
 
 	public static boolean isRooted()
@@ -314,8 +332,14 @@ public class Utils
 
 	public static void showToast(Context con, String text)
 	{
-	    Toast.makeText(con, text, Toast.LENGTH_SHORT).show();
+        showToast(con, text, false);
 	}
+
+    public static void showToast(Context con, String text, boolean lengthLong)
+    {
+        Toast.makeText(con, text, lengthLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show();
+    }
+
 
 
 }

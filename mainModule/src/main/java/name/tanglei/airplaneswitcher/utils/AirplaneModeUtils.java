@@ -1,4 +1,4 @@
-package name.tanglei.airplaneswitcher;
+package name.tanglei.airplaneswitcher.utils;
 
  
 import android.annotation.TargetApi;
@@ -8,7 +8,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.util.Log;
 
-public class AirplaneModeService
+public class AirplaneModeUtils
 {
 	// http://developer.android.com/about/versions/android-4.2.html
 	// Some device settings defined by Settings.System are now read-only.
@@ -17,7 +17,7 @@ public class AirplaneModeService
 	// silently fail
 	// when running on Android 4.2 and higher.
 	
-	private static String TAG = AirplaneModeService.class.getName();
+	private static String TAG = AirplaneModeUtils.class.getName();
 	
 	public static int ALLOW_WRITE_SECURE_SETTINGS = 17; // my defy ok.miui
 														// 2.3.7, os kerner 2.2

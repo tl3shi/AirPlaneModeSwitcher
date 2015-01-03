@@ -20,6 +20,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import name.tanglei.airplaneswitcher.utils.AirplaneModeUtils;
+import name.tanglei.airplaneswitcher.utils.Utils;
+
 public class ReceivedAction extends Activity
 {
 	public static String TAG = ReceivedAction.class.getName();
@@ -107,8 +110,8 @@ public class ReceivedAction extends Activity
         if (isScreenLocked)
         {
         	Log.i(TAG, "screenLocked no dialog, direct set airplanemode");
-        	AirplaneModeService.setAirplane(ReceivedAction.this,
-        			action);
+        	AirplaneModeUtils.setAirplane(ReceivedAction.this,
+                    action);
         	return;
         }
         			
@@ -172,7 +175,6 @@ public class ReceivedAction extends Activity
 		{
 			Log.d(TAG, "user confirm true");
 			setAirPlaneState(true);
-			
 		}
 	};
 	
@@ -218,7 +220,7 @@ public class ReceivedAction extends Activity
 		}
 		dialog.show();
 		positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
-		countDownTimeHander.sendEmptyMessageDelayed(0, 100);
+		countDownTimeHandler.sendEmptyMessageDelayed(0, 100);
 	}
 	
 	//http://ifoggy.iteye.com/blog/1874499
@@ -240,7 +242,7 @@ public class ReceivedAction extends Activity
 	    }  
 	}  
 	  
-	private Handler countDownTimeHander = new MsgHandler(this); 
+	private Handler countDownTimeHandler = new MsgHandler(this);
 	
 	public void handleMessage(Message msg)
 	{
@@ -250,7 +252,7 @@ public class ReceivedAction extends Activity
 			{
 				String txt = this.getString(R.string.confirmAirmodeButtonOK) + " (" + delaycount + " s )";
 				positiveButton.setText(txt);
-				countDownTimeHander.sendEmptyMessageDelayed(0, 1000); 
+				countDownTimeHandler.sendEmptyMessageDelayed(0, 1000);
 			}
 			delaycount --;
 		}else
@@ -275,8 +277,7 @@ public class ReceivedAction extends Activity
 				tip = this.getString(R.string.airplanemode_on_tip);
 			else 
 				tip = this.getString(R.string.airplanemode_off_tip);
-			
-			//Toast.makeText(this, tip, Toast.LENGTH_LONG).show();
+
 			showProgressDialog(this.getString(R.string.airplanemode_action_title), tip);
 			
 			new Thread()
@@ -290,8 +291,8 @@ public class ReceivedAction extends Activity
 					{
 						e.printStackTrace();
 					}
-					AirplaneModeService.setAirplane(ReceivedAction.this,
-							air_action);
+					AirplaneModeUtils.setAirplane(ReceivedAction.this,
+                            air_action);
 				}
 			}.start();
 			

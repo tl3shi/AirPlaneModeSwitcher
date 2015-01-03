@@ -4,13 +4,17 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 import name.tanglei.airplaneswitcher.R;
-import name.tanglei.airplaneswitcher.Utils;
+import name.tanglei.airplaneswitcher.utils.Utils;
 import android.content.Context;
+import android.util.Log;
+
 import com.j256.ormlite.field.DatabaseField;
 
 public class TaskEntity implements Serializable  
 {
 	private static final long serialVersionUID = -4211414366117177910L;
+
+    private static final String TAG = TaskEntity.class.getName();
 
     @DatabaseField(generatedId=true)
     private int _id;//primary key in db;
@@ -145,14 +149,14 @@ public class TaskEntity implements Serializable
         return this.repeat;
     }
 
+
     public void toggleWeekday(int day)
     {
-        if(((this.repeat >> (day-1)) & 0x1) == 0x1)
+        if (isSet(day))//(((this.repeat >> (day-1)) & 0x1) == 0x1)
             this.repeat &= 0xFFFFFFFF ^ (1 << (day-1)); //1-->0
         else
             this.repeat |= 1 << (day-1); //0 --> 1
     }
-
 
 
     public String getRepeatStr(Context context)
@@ -179,6 +183,21 @@ public class TaskEntity implements Serializable
         return repeatDesc;
     }
 
+    public boolean isSet(int weekday)
+    {
+        return (((this.repeat >> (weekday-1)) & 0x1) == 0x1);
+    }
+
+    public boolean isRepeatable()
+    {
+        return !this.isOnce();
+    }
+
+    public boolean isOnce()
+    {
+        return this.repeat == 0;
+    }
+
     public String toFormatString(Context context)
     {
         return "TaskEntity{" +
@@ -198,6 +217,7 @@ public class TaskEntity implements Serializable
         return time;
     }
 
+
     public String getTimeStr(Context context)
     {
         return Utils.formatTime(context, this.getCalendarNow());
@@ -205,7 +225,58 @@ public class TaskEntity implements Serializable
 
     public String toTimeString()
     {
-        return hour + ":" + minute;
+        return hour + " : " + minute;
     }
 
+    private int getNextAlarm(Calendar c)
+    {
+        if (this.isOnce())
+            return -1;
+
+        //start as SUNDAY:1, Mon 2  -->
+        //Monday 1, sunday 7
+        int today = c.get(Calendar.DAY_OF_WEEK) - 1 ;
+        if (today == 0) today = 7;
+
+        int day = 0;
+        int dayCount = 0;
+        for (; dayCount < 7; dayCount++) {
+            day = (today + dayCount) % 7;
+            if (isSet(day)) {
+                break;
+            }
+        }
+        return dayCount;
+    }
+
+    /*public String getNextAlarmDateTime(Context context)
+    {
+        return Utils.formatDateTime(context, this.getNextAlarmCalendar());
+    }*/
+
+    public Calendar getNextAlarmCalendar()
+    {
+        // start with now
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(System.currentTimeMillis());
+
+        int nowHour = c.get(Calendar.HOUR_OF_DAY);
+        int nowMinute = c.get(Calendar.MINUTE);
+
+        // if alarm is behind current time, advance one day
+        if (hour < nowHour  ||
+                hour == nowHour && minute <= nowMinute) {
+            c.add(Calendar.DAY_OF_YEAR, 1);
+        }
+        c.set(Calendar.HOUR_OF_DAY, hour);
+        c.set(Calendar.MINUTE, minute);
+        c.set(Calendar.SECOND, 0);
+        c.set(Calendar.MILLISECOND, 0);
+        int addDays = getNextAlarm(c);
+        if (addDays > 0) {
+            c.add(Calendar.DAY_OF_WEEK, addDays);
+            Log.i(TAG, "add next day: " + addDays);
+        }
+        return c;
+    }
 }

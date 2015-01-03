@@ -13,6 +13,12 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/id_action_toggle"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/menuSetOffRightnow"
+        />
 
 </menu>
 <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/menu/home.xml -->

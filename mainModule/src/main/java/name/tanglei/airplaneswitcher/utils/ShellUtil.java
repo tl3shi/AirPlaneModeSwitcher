@@ -1,4 +1,4 @@
-package name.tanglei.airplaneswitcher;
+package name.tanglei.airplaneswitcher.utils;
 
 import java.io.DataOutputStream;
 import java.io.IOException;

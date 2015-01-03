@@ -4,8 +4,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
+import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
@@ -22,7 +25,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper
     private static final String DATABASE_NAME = "tasklist.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TAG = DatabaseHelper.class.getName();
-    private Dao<TaskEntity, Integer> taskDao;
+    private RuntimeExceptionDao<TaskEntity, Integer> taskDao;
 
     public DatabaseHelper(Context context)
     {
@@ -52,24 +55,41 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper
 
     }
 
-    public Dao<TaskEntity, Integer> getTaskDao()
+    public RuntimeExceptionDao<TaskEntity, Integer> getTaskDao()
     {
         if(taskDao == null)
-            try {
-                taskDao = getDao(TaskEntity.class);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            taskDao = this.getRuntimeExceptionDao(TaskEntity.class);
         return taskDao;
     }
 
     private List<TaskEntity> getAllTasks()
     {
+        return getTaskDao().queryForAll();
+    }
+
+    public static DatabaseHelper getHelper(Context context)
+    {
+        return OpenHelperManager.getHelper(context, DatabaseHelper.class);
+    }
+
+    public static List<TaskEntity> queryAllTasks(Context context)
+    {
+        RuntimeExceptionDao<TaskEntity, Integer> dao = getHelper(context).getTaskDao();
         try {
-            return getTaskDao().queryForAll();
+            return dao.queryForAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public static TaskEntity query(Context context, int taskid)
+    {
+        RuntimeExceptionDao<TaskEntity, Integer> dao = getHelper(context).getTaskDao();
+        try {
+            return (TaskEntity)dao.queryForFirst(dao.queryBuilder().where().eq("_id", Integer.valueOf(taskid)).prepare());
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }

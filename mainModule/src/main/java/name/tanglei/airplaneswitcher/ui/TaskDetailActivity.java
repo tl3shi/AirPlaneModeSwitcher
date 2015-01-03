@@ -1,16 +1,14 @@
 package name.tanglei.airplaneswitcher.ui;
 
 import name.tanglei.airplaneswitcher.R;
-import name.tanglei.airplaneswitcher.Utils;
+import name.tanglei.airplaneswitcher.utils.TaskManagerUtils;
+import name.tanglei.airplaneswitcher.utils.Utils;
 import name.tanglei.airplaneswitcher.dao.DatabaseHelper;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +17,6 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -230,7 +227,7 @@ public class TaskDetailActivity extends OrmLiteBaseActivity<DatabaseHelper>//Fra
         {
             try {
                 getHelper().getTaskDao().create(this.editAlarm);
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
                 Log.e(TAG, "save new task failed ! " + e.toString());
             }
@@ -238,11 +235,12 @@ public class TaskDetailActivity extends OrmLiteBaseActivity<DatabaseHelper>//Fra
         {
             try {
                 getHelper().getTaskDao().update(this.editAlarm);
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
                 Log.e(TAG, "update new task failed ! " + e.toString());
             }
         }
+        TaskManagerUtils.addOrUpdateTask(this.getApplicationContext(), this.editAlarm, true);
     }
 
     @Override

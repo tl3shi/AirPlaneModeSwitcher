@@ -5,6 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import java.util.List;
+
+import name.tanglei.airplaneswitcher.dao.DatabaseHelper;
+import name.tanglei.airplaneswitcher.entity.TaskEntity;
+import name.tanglei.airplaneswitcher.utils.TaskManagerUtils;
+import name.tanglei.airplaneswitcher.utils.Utils;
+
 public class BootBroadcastReceiver extends BroadcastReceiver
 {
 	public static final String TAG = BootBroadcastReceiver.class.getName();
@@ -15,9 +22,15 @@ public class BootBroadcastReceiver extends BroadcastReceiver
 		String action = intent.getAction().toString();
 		if (action.equals(Intent.ACTION_BOOT_COMPLETED))
 		{
-			Config config = Utils.getStoredPreference(context);
-			Log.i(TAG, "boot complete,config :"  + config.toString());
-			Utils.startSchedule(context, config, false);
+            List<TaskEntity> tasks = DatabaseHelper.queryAllTasks(context);
+            int count = 0;
+            for(TaskEntity alarm : tasks) {
+                if (alarm.isActive()) {
+                    TaskManagerUtils.addOrUpdateTask(context, alarm);
+                    count ++;
+                }
+            }
+            Log.i(TAG, "All active alarms are on schedule: " + count);
 			return;
 		}
 	}

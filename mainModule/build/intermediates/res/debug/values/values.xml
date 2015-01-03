@@ -680,8 +680,8 @@
     <string name="alertDialogTimeChoose_title">请选择任务时间</string>
     <string name="alertDialog_negative">取消</string>
     <string name="alertDialog_positive">确定</string>
-    <string name="app_name">飞行模式Switcher</string>
-    <string name="belowtip">意见反馈：admin@tanglei.name</string>
+    <string name="app_name">AutoSwitcher</string>
+    <string name="belowtip">意见反馈：i@tanglei.me</string>
     <string name="cancelAirmodeToast">取消成功</string>
     <string name="confirmAirmodeButtonCancel">取消</string>
     <string name="confirmAirmodeButtonOK">确定</string>
@@ -711,7 +711,7 @@
     <string name="menuSetOffRightnow">立即关闭飞行模式</string>
     <string name="menuSetOnRightnow">立即启动飞行模式</string>
     <string name="monday">星期一</string>
-    <string name="nextStartTipPref">下次飞行模式时间是： </string>
+    <string name="nextStartTipPref">该任务下次飞行模式时间是： </string>
     <string name="noCheckContent">没选是否开启呢?</string>
     <string name="noCheckTitle">您在开玩笑?</string>
     <string name="noRootError">您的手机版本太高端(>=4.2)了，且没有Root，我搞不定～～</string>

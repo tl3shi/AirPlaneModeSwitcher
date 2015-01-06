@@ -242,6 +242,8 @@
     <dimen name="abs__dropdownitem_text_padding_right">8.0dip</dimen>
     <dimen name="abs__search_view_preferred_width">320.0dip</dimen>
     <dimen name="abs__search_view_text_min_width">160.0dip</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="alarm_am_pm">40.0sp</dimen>
     <dimen name="alarm_hour">90.0sp</dimen>
     <dimen name="alarm_label">24.0sp</dimen>
@@ -667,7 +669,9 @@
     <string name="aboutOkButton">确定</string>
     <string name="aboutTitle">关于</string>
     <string name="action_add">添加</string>
+    <string name="action_delete_log">删除日志</string>
     <string name="action_giveup">放弃更改</string>
+    <string name="action_operationLog">查看日志</string>
     <string name="action_save">保存任务</string>
     <string name="action_settings">Settings</string>
     <string name="airplanemode_action_title">飞行模式切换中</string>
@@ -706,16 +710,26 @@
     <string name="helpTitle">帮助</string>
     <string name="home_task_delete_alert_content">确认要删除该任务记录?</string>
     <string name="home_task_delete_alert_title">警告!</string>
+    <string name="home_tasks_empty_tip">无任务</string>
     <string name="menuAbout">关于</string>
     <string name="menuHelp">帮助</string>
     <string name="menuSetOffRightnow">立即关闭飞行模式</string>
     <string name="menuSetOnRightnow">立即启动飞行模式</string>
     <string name="monday">星期一</string>
-    <string name="nextStartTipPref">该任务下次飞行模式时间是： </string>
+    <string name="nextStartTipPref">该任务下次执行的时间是： </string>
     <string name="noCheckContent">没选是否开启呢?</string>
     <string name="noCheckTitle">您在开玩笑?</string>
     <string name="noRootError">您的手机版本太高端(>=4.2)了，且没有Root，我搞不定～～</string>
     <string name="noRootErrorTitle">高端货～</string>
+    <string name="operation_log_attempt_off">尝试关闭飞行模式</string>
+    <string name="operation_log_attempt_on">尝试开启飞行模式</string>
+    <string name="operation_log_attempt_user_cancel">用户取消</string>
+    <string name="operation_log_attempt_user_force_suf">(手动) </string>
+    <string name="operation_log_empty_tip">无日志记录</string>
+    <string name="operation_log_fail_off">关闭飞行模式成功</string>
+    <string name="operation_log_fail_on">开启飞行模式成功</string>
+    <string name="operation_log_success_off">关闭飞行模式成功</string>
+    <string name="operation_log_success_on">开启飞行模式成功</string>
     <string name="saturday">星期六</string>
     <string name="setup_off">设置已经关闭</string>
     <string name="setup_on">设置已经启用</string>
@@ -732,6 +746,7 @@
     <string name="task_default_name">请输入任务名称</string>
     <string name="thursday">星期四</string>
     <string name="timeFormat">HH:mm</string>
+    <string name="title_activity_operation_log">OperationLog</string>
     <string name="title_activity_test">TestActivity</string>
     <string name="toggle_success_off">关闭成功</string>
     <string name="toggle_success_on">开启成功</string>

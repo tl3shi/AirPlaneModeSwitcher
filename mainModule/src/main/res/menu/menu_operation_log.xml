@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="name.tanglei.airplaneswitcher.ui.OperationLog">
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/id_action_delete_oplog"
+        android:title="@string/action_delete_log"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+</menu>

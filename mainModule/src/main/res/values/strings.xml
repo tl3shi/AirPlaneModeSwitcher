@@ -35,7 +35,7 @@
     <string name="helpTitle">帮助</string>
     <string name="helpOkButton">确定</string>
     <string name="aboutOkButton">确定</string>
-    <string name="nextStartTipPref">该任务下次飞行模式时间是： </string>
+    <string name="nextStartTipPref">该任务下次执行的时间是： </string>
     <string name="timeFormat">HH:mm</string>
     <string name="datetimeFormat">MM月dd日  HH:mm</string>
     <string name="noRootError">您的手机版本太高端(>=4.2)了，且没有Root，我搞不定～～</string>
@@ -73,6 +73,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_add">添加</string>
     <string name="action_save">保存任务</string>
+    <string name="action_delete_log">删除日志</string>
     <string name="alarm_line_is_sms">SMS</string>
     <string name="alarm_line_snoozed">SNOOZED</string>
     <string name="weekdays_formater_everyday">EVERY DAY</string>
@@ -97,4 +98,16 @@
     <string name="action_giveup">放弃更改</string>
     <string name="home_task_delete_alert_title">警告!</string>
     <string name="home_task_delete_alert_content">确认要删除该任务记录?</string>
+    <string name="title_activity_operation_log">OperationLog</string>
+    <string name="operation_log_attempt_on">尝试开启飞行模式</string>
+    <string name="operation_log_attempt_off">尝试关闭飞行模式</string>
+    <string name="operation_log_attempt_user_cancel">用户取消</string>
+    <string name="operation_log_attempt_user_force_suf">(手动) </string>
+    <string name="operation_log_success_on">开启飞行模式成功</string>
+    <string name="operation_log_success_off">关闭飞行模式成功</string>
+    <string name="operation_log_fail_on">开启飞行模式成功</string>
+    <string name="operation_log_fail_off">关闭飞行模式成功</string>
+    <string name="action_operationLog">查看日志</string>
+    <string name="operation_log_empty_tip">无日志记录</string>
+    <string name="home_tasks_empty_tip">无任务</string>
 </resources>

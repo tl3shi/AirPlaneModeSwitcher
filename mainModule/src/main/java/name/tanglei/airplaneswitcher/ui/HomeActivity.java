@@ -34,7 +34,7 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
 
     private final String TAG = HomeActivity.class.getName();
 
-    private ArrayAdapter<TaskEntity> taskAdapter;
+    private TaskListAdapter taskAdapter;
     private ListView taskListView;
     private List<TaskEntity> tasks =  new ArrayList<TaskEntity>();
     private boolean currentAirplaneOn;
@@ -128,20 +128,32 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.id_action_add:
+            {
                 Intent intent = new Intent(this, TaskDetailActivity.class);
                 this.startActivity(intent);
                 break;
+            }
             case R.id.id_action_settings:
-                //Toast.makeText(this, "Settings TODO", Toast.LENGTH_SHORT).show();
+            {
+                    //Toast.makeText(this, "Settings TODO", Toast.LENGTH_SHORT).show();
                 Utils.showToast(this, "Settings TODO");
                 break;
+            }
             case R.id.id_action_toggle:
+            {
                 Intent i = new Intent(this, ReceivedAction.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.putExtra(ReceivedAction.ACTION_TAG, !currentAirplaneOn);
                 i.putExtra(ReceivedAction.USERACTION_TAG, true);
                 this.startActivity(i);
                 break;
+            }
+            case R.id.id_action_operationLog:
+            {
+                Intent intent  = new Intent(this, OperationLogActivity.class);
+                this.startActivity(intent);
+                break;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -153,10 +165,10 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
         {
             List<TaskEntity> listIndb =  this.getHelper().getTaskDao().queryForAll();
             Log.i(TAG, "tasks.hash " + this.tasks.hashCode() + ", tasks count : " + tasks.size());
-            String ids = "";
-            for(int i = 0; i < listIndb.size(); i++)
-                ids += listIndb.get(i).getId() + " ,";
-            Log.i(TAG, "ids:  " + ids);
+            //String ids = "";
+            //for(int i = 0; i < listIndb.size(); i++)
+            //    ids += listIndb.get(i).getId() + " @" + listIndb.get(i).hashCode() +" ,";
+            //Log.i(TAG, "ids:  " + ids);
             this.tasks.clear();
             this.tasks.addAll(listIndb);
         } catch (Exception e) {

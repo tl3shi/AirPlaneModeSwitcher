@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <dimen name="abs__action_bar_default_height">48.0dip</dimen>
     <dimen name="abs__action_bar_icon_vertical_padding">8.0dip</dimen>
     <dimen name="abs__action_bar_subtitle_bottom_margin">5.0dip</dimen>
@@ -94,4 +95,7 @@
     <dimen name="widget_alarm_text_am_pm">12.0sp</dimen>
     <dimen name="widget_two_one_hour">40.0sp</dimen>
     <dimen name="widget_two_one_hour_am_pm">30.0sp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
 </resources>

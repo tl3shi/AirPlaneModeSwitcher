@@ -58,22 +58,9 @@ public class TaskListAdapter extends ArrayAdapter<TaskEntity>
             //ToggleButton tgButton = (ToggleButton)rowView.findViewById(R.id.idTgButton);
             //tgButton.setChecked(task.isActive());
             holder.chk = (CheckBox) convertView.findViewById(R.id.alarm_line_alarm_is_active);
-            holder.chk.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    CheckBox c = (CheckBox) v;
-                    if(c.isChecked())
-                    {
-                        task.setActive(true);
-                    }else
-                        task.setActive(false);
-                    Log.i(TAG, "active " + task.getId() + " : " + task.isActive());
-                    taskDao.update(task);
-                    TaskManagerUtils.addOrUpdateTask(getContext(), task, task.isActive());
-                }
-            });
+            //cannot set the onclicklistener here, for if the task is modified, the response is
+            //always relate with the original one
+            //holder.chk.setOnClickListener(new View.OnClickListener()
             convertView.setTag(holder);
         }else
         {
@@ -89,6 +76,22 @@ public class TaskListAdapter extends ArrayAdapter<TaskEntity>
         String repeatDesc = task.getRepeatStr(this.getContext());
         holder.txRepeat.setText(repeatDesc);
         holder.txTitle.setText(task.getTitle());
+        holder.chk.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                CheckBox c = (CheckBox) v;
+                if(c.isChecked())
+                {
+                    task.setActive(true);
+                }else
+                    task.setActive(false);
+                Log.i(TAG, "active " + task.getId() + " @ " + task.hashCode() + " : " + task.isActive());
+                taskDao.update(task);
+                TaskManagerUtils.addOrUpdateTask(getContext(), task, task.isActive());
+            }
+        });
 //        holder.chk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
 //        {
 //            @Override

@@ -1,4 +1,4 @@
-package name.tanglei.airplaneswitcher;
+package name.tanglei.airplaneswitcher.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,6 +7,7 @@ import android.util.Log;
 
 import name.tanglei.airplaneswitcher.dao.DatabaseHelper;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
+import name.tanglei.airplaneswitcher.ui.ReceivedAction;
 import name.tanglei.airplaneswitcher.utils.AirplaneModeUtils;
 import name.tanglei.airplaneswitcher.utils.TaskManagerUtils;
 
@@ -28,14 +29,17 @@ public class AlarmReceiver extends BroadcastReceiver
         if(task == null) return ;
         Log.i(TAG, "alarm recevied: " + task.toFormatString(context) + "Now timeInMillis : " + System.currentTimeMillis());
 
-        TaskManagerUtils.addOrUpdateTask(context, task); //next
+        if(task.isOnce())
+            DatabaseHelper.disableTask(context, task);
+        else
+            TaskManagerUtils.addOrUpdateTask(context, task); //next
         //set next alarm
 		if (isModeOn)
 		{
 			if (isEnabled == true)
 				return;
 			
-			Intent i = new Intent(context, ReceivedAction.class); 
+			Intent i = new Intent(context, ReceivedAction.class);
 		    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
 		    i.putExtra(ReceivedAction.ACTION_TAG, true);
 		    context.startActivity(i);

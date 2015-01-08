@@ -1,14 +1,15 @@
 package name.tanglei.airplaneswitcher.entity;
 
+import android.content.Context;
+import android.util.Log;
+
+import com.j256.ormlite.field.DatabaseField;
+
 import java.io.Serializable;
 import java.util.Calendar;
 
 import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.utils.Utils;
-import android.content.Context;
-import android.util.Log;
-
-import com.j256.ormlite.field.DatabaseField;
 
 public class TaskEntity implements Serializable  
 {
@@ -158,16 +159,30 @@ public class TaskEntity implements Serializable
             this.repeat |= 1 << (day-1); //0 --> 1
     }
 
+    public static int getRepeatWorkday()
+    {
+        return 0x0000001F;//0000,0000,0001,1111
+    }
+
+    public static int getRepeatEveryday()
+    {
+        return 0x0000007F;// 0000, 0000, 0111,1111
+    }
+
+    public static int getRepeatOnce()
+    {
+        return 0;
+    }
 
     public String getRepeatStr(Context context)
     {
         String repeatDesc = "";
-        // 0000, 0000, 0111,1111
-        if (repeat == 0x0000007F)
+
+        if (this.isEveryday())
             repeatDesc = context.getString(R.string.txtRepeatEveryday);
-        else if(repeat == 0x0000001F) //0000,0000,0001,1111
+        else if(this.isWorkday())
             repeatDesc = context.getString(R.string.txtRepeatWeekday);
-        else if(repeat == 0)
+        else if(this.isOnce())
             repeatDesc = context.getString(R.string.txtRepeatNone);
         else
         {
@@ -197,6 +212,10 @@ public class TaskEntity implements Serializable
     {
         return this.repeat == 0;
     }
+
+    public boolean isWorkday(){return this.repeat == TaskEntity.getRepeatWorkday();}
+
+    public boolean isEveryday(){return this.repeat == TaskEntity.getRepeatEveryday();}
 
     public String toFormatString(Context context)
     {

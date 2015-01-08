@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values-v16/styles.xml -->
-    <eat-comment/>
-    <style name="Husky.TextView.Thin.Legacy" parent="@*android:style/TextAppearance">
-        <item name="android:fontFamily">sans-serif-light</item>
-    </style>
-</resources>

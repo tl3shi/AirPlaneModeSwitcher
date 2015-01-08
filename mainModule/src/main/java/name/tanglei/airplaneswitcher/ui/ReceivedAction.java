@@ -1,6 +1,4 @@
-package name.tanglei.airplaneswitcher;
-
-import java.lang.ref.WeakReference;
+package name.tanglei.airplaneswitcher.ui;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,6 +18,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.ref.WeakReference;
+
+import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.utils.AirplaneModeUtils;
 import name.tanglei.airplaneswitcher.utils.OperationLogUtils;
 import name.tanglei.airplaneswitcher.utils.Utils;
@@ -47,6 +48,16 @@ public class ReceivedAction extends Activity
 	protected void onDestroy()
 	{
 		Log.i(TAG, "onDestroy");
+
+        try //no api to detect if receiver is registered
+        {
+            ReceivedAction.this.unregisterReceiver(airmodechanged_receiver);
+            Log.i(TAG, "unregisterReceiver(airmodechanged_receiver) sucessfully");
+        } catch (Exception e)
+        {
+            Log.i(TAG, "unregisterReceiver(airmodechanged_receiver) failed " + e.getLocalizedMessage());
+        }
+
 		super.onDestroy();
 		if(this.isScreenLocked)
 		{
@@ -114,7 +125,7 @@ public class ReceivedAction extends Activity
     	      @Override
     	      public void onReceive(Context context, Intent intent) {
     	    	    ReceivedAction.this.finish();
-    	            Log.d(TAG, "airplane mode state has changed");
+    	            Log.i(TAG, "Received airplane mode state has changed");
     	            dismissProgressDialog();
     	            
     	            Toast.makeText(ReceivedAction.this, 
@@ -131,8 +142,8 @@ public class ReceivedAction extends Activity
                     R.string.operation_log_attempt_off) + this.getString(R.string.operation_log_attempt_user_force_suf) , false);
         else
             OperationLogUtils.addOperation(true, this.getString(action ?
-                                                R.string.operation_log_attempt_on:
-                                                R.string.operation_log_attempt_off), false);
+             R.string.operation_log_attempt_on:
+             R.string.operation_log_attempt_off) + this.getString(R.string.operation_log_attempt_auto_suf), false);
 
         isScreenLocked = Utils.isScreenLocked(this);
         //fix bug,
@@ -140,7 +151,7 @@ public class ReceivedAction extends Activity
         {
             Log.i(TAG, "screenLocked no dialog, direct set airplanemode");
             AirplaneModeUtils.setAirplane(ReceivedAction.this,
-                    action);
+                    action, true);
             return;
         }
         if(action)
@@ -162,16 +173,7 @@ public class ReceivedAction extends Activity
 	@Override
 	protected void onStop()
 	{
-		if(true)
-		{
-			try //no api to detect if receiver is registered
-			{
-				unregisterReceiver(airmodechanged_receiver);
-			} catch (Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
+        Log.i(TAG, "onStop");
 		ReceivedAction.this.finish();
 		dismissProgressDialog();
 		super.onStop();
@@ -198,7 +200,7 @@ public class ReceivedAction extends Activity
 			Log.d(TAG, "user confirm false, is_user_force_action = " + is_user_force_action);
 			dialog.dismiss();
 			Toast.makeText(ReceivedAction.this, ReceivedAction.this.getString(R.string.cancelAirmodeToast), Toast.LENGTH_SHORT).show();
-            OperationLogUtils.addOperation(false, ReceivedAction.this.getString(R.string.operation_log_attempt_user_cancel), true);
+            OperationLogUtils.addOperation(false, "\t"+ReceivedAction.this.getString(R.string.operation_log_attempt_user_cancel), true);
 		}
 	};
 

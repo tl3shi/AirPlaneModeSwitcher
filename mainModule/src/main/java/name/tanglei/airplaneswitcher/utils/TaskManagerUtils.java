@@ -6,11 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import java.util.Calendar;
-
-import name.tanglei.airplaneswitcher.AlarmReceiver;
 import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
+import name.tanglei.airplaneswitcher.receiver.AlarmReceiver;
 
 /**
  * Created by TangLei on 14/12/28.

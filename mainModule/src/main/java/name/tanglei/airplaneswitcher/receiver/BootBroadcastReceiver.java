@@ -1,4 +1,4 @@
-package name.tanglei.airplaneswitcher;
+package name.tanglei.airplaneswitcher.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,7 +10,6 @@ import java.util.List;
 import name.tanglei.airplaneswitcher.dao.DatabaseHelper;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
 import name.tanglei.airplaneswitcher.utils.TaskManagerUtils;
-import name.tanglei.airplaneswitcher.utils.Utils;
 
 public class BootBroadcastReceiver extends BroadcastReceiver
 {

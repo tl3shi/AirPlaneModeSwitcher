@@ -1,21 +1,17 @@
 package name.tanglei.airplaneswitcher.utils;
 
-import android.content.Context;
 import android.os.Environment;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.RandomAccessFile;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -87,9 +83,9 @@ public class OperationLogUtils
     {
         try
         {
-            File file = new File(Environment.getExternalStorageDirectory(),logFilename);
-            if(file.exists())
-                file.delete();
+            RandomAccessFile file = new RandomAccessFile(new File(
+                    Environment.getExternalStorageDirectory(),logFilename), "rw");
+            file.getChannel().truncate(0);
             return true;
         }catch(Exception e)
         {

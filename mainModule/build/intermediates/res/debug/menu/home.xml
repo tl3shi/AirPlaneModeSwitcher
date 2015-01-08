@@ -11,14 +11,7 @@
         android:id="@+id/id_action_operationLog"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_operationLog"/>
-
-    <item
-        android:id="@+id/id_action_settings"
-        android:icon="@drawable/ic_action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="@string/action_operation_log"/>
 
     <item
         android:id="@+id/id_action_toggle"
@@ -26,6 +19,20 @@
         android:showAsAction="never"
         android:title="@string/menuSetOffRightnow"
         />
+
+    <item
+        android:id="@+id/id_action_help"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/menuHelp"/>
+
+    <item
+        android:id="@+id/id_action_about"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/menuAbout"/>
+
+
 
 </menu>
 <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/menu/home.xml -->

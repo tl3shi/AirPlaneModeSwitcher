@@ -1,11 +1,5 @@
 package name.tanglei.airplaneswitcher.ui;
 
-import name.tanglei.airplaneswitcher.R;
-import name.tanglei.airplaneswitcher.utils.TaskManagerUtils;
-import name.tanglei.airplaneswitcher.utils.Utils;
-import name.tanglei.airplaneswitcher.dao.DatabaseHelper;
-import name.tanglei.airplaneswitcher.entity.TaskEntity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -23,7 +17,11 @@ import android.widget.TimePicker;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
-import java.sql.SQLException;
+import name.tanglei.airplaneswitcher.R;
+import name.tanglei.airplaneswitcher.dao.DatabaseHelper;
+import name.tanglei.airplaneswitcher.entity.TaskEntity;
+import name.tanglei.airplaneswitcher.utils.TaskManagerUtils;
+import name.tanglei.airplaneswitcher.utils.Utils;
 
 
 public class TaskDetailActivity extends OrmLiteBaseActivity<DatabaseHelper>//FragmentActivity

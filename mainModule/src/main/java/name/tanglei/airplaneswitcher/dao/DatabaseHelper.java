@@ -6,15 +6,15 @@ import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
-import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
-import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.List;
 
+import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.entity.TaskEntity;
 
 /**
@@ -91,5 +91,28 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static boolean disableTask(Context context, TaskEntity task)
+    {
+        RuntimeExceptionDao<TaskEntity, Integer> dao = getHelper(context).getTaskDao();
+        task.setActive(false);
+        return dao.update(task) == 1;
+    }
+
+    public static boolean saveDefaultTasks(Context context)
+    {
+        try
+        {
+            RuntimeExceptionDao<TaskEntity, Integer> dao = getHelper(context).getTaskDao();
+            dao.create(new TaskEntity(true, TaskEntity.getRepeatWorkday(), 0, 00,
+                    context.getResources().getString(R.string.task_default_sleep_name), true));
+            dao.create(new TaskEntity(true, TaskEntity.getRepeatWorkday(), 6, 30,
+                    context.getResources().getString(R.string.task_default_getup_name), true));
+            return true;
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

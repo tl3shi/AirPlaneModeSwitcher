@@ -1,13 +1,5 @@
 package name.tanglei.airplaneswitcher.ui;
 
-import java.sql.SQLException;
-import java.util.List;
-
-import name.tanglei.airplaneswitcher.R;
-import name.tanglei.airplaneswitcher.entity.TaskEntity;
-import name.tanglei.airplaneswitcher.utils.TaskManagerUtils;
-import name.tanglei.airplaneswitcher.utils.Utils;
-
 import android.app.Activity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,11 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
+
+import java.util.List;
+
+import name.tanglei.airplaneswitcher.R;
+import name.tanglei.airplaneswitcher.entity.TaskEntity;
+import name.tanglei.airplaneswitcher.utils.TaskManagerUtils;
 
 public class TaskListAdapter extends ArrayAdapter<TaskEntity>
 {

@@ -22,13 +22,18 @@ public class AirplaneModeUtils
 	public static int ALLOW_WRITE_SECURE_SETTINGS = 17; // my defy ok.miui
 														// 2.3.7, os kerner 2.2
 
-	public static void setAirplane(Context context, boolean enable)
+    public static void setAirplane(Context context, boolean enable)
+    {
+        setAirplane(context, enable, false);
+    }
+
+    public static void setAirplane(Context context, boolean enable, boolean sendBroadcastMannuly)
 	{
 		boolean isEnabled = isAirplaneModeOn(context);
 		if (isEnabled == enable)
 			return;
 
-		changeAirplaneMode(context, enable ? 1 : 0);
+		changeAirplaneMode(context, enable ? 1 : 0, sendBroadcastMannuly);
 	}
 
 	public static boolean isAirplaneModeOn(Context context)
@@ -49,13 +54,18 @@ public class AirplaneModeUtils
 				Settings.System.AIRPLANE_MODE_ON, 0) != 0;
 	}
 
-	private static void changeAirplaneMode(Context context, int value)
+    private static void changeAirplaneMode(Context context, int value)
+    {
+        changeAirplaneMode(context, value, false);
+    }
+
+	private static void changeAirplaneMode(Context context, int value, boolean sendBroadcastMannuly)
 	{
 		if (!(android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1))
         {
             setSettingsOnHigh(context, value); //including send a broadcast
         }
-		else
+		else if(sendBroadcastMannuly)
         {
             setSettingsOnLow(context, value);
             try {

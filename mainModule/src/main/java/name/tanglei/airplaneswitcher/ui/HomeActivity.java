@@ -1,8 +1,12 @@
 package name.tanglei.airplaneswitcher.ui;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -11,22 +15,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import name.tanglei.airplaneswitcher.R;
-import name.tanglei.airplaneswitcher.ReceivedAction;
+import name.tanglei.airplaneswitcher.dao.DatabaseHelper;
+import name.tanglei.airplaneswitcher.entity.TaskEntity;
 import name.tanglei.airplaneswitcher.utils.AirplaneModeUtils;
 import name.tanglei.airplaneswitcher.utils.TaskManagerUtils;
 import name.tanglei.airplaneswitcher.utils.Utils;
-import name.tanglei.airplaneswitcher.dao.DatabaseHelper;
-import name.tanglei.airplaneswitcher.entity.TaskEntity;
 
 
 public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
@@ -43,12 +45,37 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        if(! Utils.getStoredPreferenceRooted(this) && android.os.Build.VERSION.SDK_INT >= 17)//no root
+        {
+            iCannotDoit();
+            return;
+        }
         this.setContentView(R.layout.home);
         taskListView = (ListView) this.findViewById(R.id.task_list);
         taskAdapter = new TaskListAdapter(this, tasks, this.getHelper().getTaskDao());
         taskListView.setAdapter(taskAdapter);
         taskListView.setOnCreateContextMenuListener(menuListListener);
         taskListView.setOnItemClickListener(listClickedListener);
+
+        if(Utils.isFirstTime(this))
+        {
+            if(android.os.Build.VERSION.SDK_INT >= 17 && !Utils.isRooted())
+            {
+                Utils.setStoredPreferenceRooted(this, false);
+                iCannotDoit();
+                return;
+            }
+            Utils.setStoredPreferenceRooted(this, true);//rooted or SDK < 17
+            this.queryAllTasks();
+            if(this.tasks.size() == 0) //really first time, not update/reinstall(db remain)
+            {
+                showWelcomeDialog(getString(R.string.firstTimeTipTitle), getString(R.string.firstTimeTipContent));
+                //add default 2 tasks
+                DatabaseHelper.saveDefaultTasks(this);
+            }
+
+        }
     }
 
     @Override
@@ -133,12 +160,12 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
                 this.startActivity(intent);
                 break;
             }
-            case R.id.id_action_settings:
-            {
-                    //Toast.makeText(this, "Settings TODO", Toast.LENGTH_SHORT).show();
-                Utils.showToast(this, "Settings TODO");
+            case R.id.id_action_help:
+                showHelpDialog();
                 break;
-            }
+            case R.id.id_action_about:
+                showAboutDialog();
+                break;
             case R.id.id_action_toggle:
             {
                 Intent i = new Intent(this, ReceivedAction.class);
@@ -208,4 +235,79 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
 
     }
 
+
+    public void iCannotDoit()
+    {
+        Log.i(TAG, "no root and sdk =" + android.os.Build.VERSION.SDK_INT);
+
+        Utils.showAlertDialog(this, getString(R.string.noRootErrorTitle), getString(R.string.noRootError), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                HomeActivity.this.finish();
+                System.exit(0);
+            }
+        });
+    }
+
+    public void showHelpDialog()
+    {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle(this.getString(R.string.helpTitle));
+        alertDialogBuilder.setIcon(R.drawable.ic_action_help);
+        TextView txtView = new TextView(this);
+        txtView.setTextSize(15f);
+        Spanned text = Html.fromHtml(this.getString(R.string.helpContentHhml));
+        txtView.setText(text);
+        txtView.setClickable(true);
+        txtView.setMovementMethod(LinkMovementMethod.getInstance());
+        alertDialogBuilder.setView(txtView);
+
+        alertDialogBuilder.setPositiveButton(
+                this.getString(R.string.helpOkButton), new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog dialog = alertDialogBuilder.create();
+        dialog.show();
+    }
+
+    public void showAboutDialog()
+    {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle(this.getString(R.string.aboutTitle));
+        alertDialogBuilder.setIcon(R.drawable.ic_action_about);
+        TextView txtView = new TextView(this);
+        txtView.setTextSize(15f);
+        Spanned text = Html.fromHtml(this.getString(R.string.aboutContentHtml));
+        txtView.setText(text);
+        txtView.setClickable(true);
+        txtView.setMovementMethod(LinkMovementMethod.getInstance());
+        alertDialogBuilder.setView(txtView);
+
+        alertDialogBuilder.setPositiveButton(
+                this.getString(R.string.aboutOkButton), new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog dialog = alertDialogBuilder.create();
+        dialog.show();
+    }
+
+    public void showWelcomeDialog(String title, String content) {
+        Utils.showInfoDialog(this, title, content, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+    }
 }

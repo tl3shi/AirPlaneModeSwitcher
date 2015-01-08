@@ -38,84 +38,74 @@ uses-permission#android.permission.READ_PHONE_STATE
 ADDED from AndroidManifest.xml:15:5
 	android:name
 		ADDED from AndroidManifest.xml:15:22
-android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:16:5
+	android:name
+		ADDED from AndroidManifest.xml:16:22
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from AndroidManifest.xml:17:5
-	android:maxSdkVersion
-		ADDED from AndroidManifest.xml:19:9
 	android:name
-		ADDED from AndroidManifest.xml:18:9
-android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from AndroidManifest.xml:20:5
-	android:maxSdkVersion
-		ADDED from AndroidManifest.xml:22:9
-	android:name
-		ADDED from AndroidManifest.xml:21:9
+		ADDED from AndroidManifest.xml:17:22
 application
-ADDED from AndroidManifest.xml:24:5
+ADDED from AndroidManifest.xml:19:5
 MERGED from com.android.support:appcompat-v7:18.0.0:19:5
 	android:label
-		ADDED from AndroidManifest.xml:27:9
+		ADDED from AndroidManifest.xml:22:9
 	android:allowBackup
-		ADDED from AndroidManifest.xml:25:9
+		ADDED from AndroidManifest.xml:20:9
 	android:icon
-		ADDED from AndroidManifest.xml:26:9
+		ADDED from AndroidManifest.xml:21:9
 	android:theme
-		ADDED from AndroidManifest.xml:28:9
-receiver#name.tanglei.airplaneswitcher.AlarmReceiver
-ADDED from AndroidManifest.xml:29:9
+		ADDED from AndroidManifest.xml:23:9
+receiver#name.tanglei.airplaneswitcher.receiver.AlarmReceiver
+ADDED from AndroidManifest.xml:24:9
 	android:enabled
-		ADDED from AndroidManifest.xml:31:13
+		ADDED from AndroidManifest.xml:26:13
 	android:exported
-		ADDED from AndroidManifest.xml:32:13
+		ADDED from AndroidManifest.xml:27:13
 	android:name
-		ADDED from AndroidManifest.xml:30:13
-receiver#name.tanglei.airplaneswitcher.BootBroadcastReceiver
-ADDED from AndroidManifest.xml:34:9
+		ADDED from AndroidManifest.xml:25:13
+receiver#name.tanglei.airplaneswitcher.receiver.BootBroadcastReceiver
+ADDED from AndroidManifest.xml:29:9
 	android:name
-		ADDED from AndroidManifest.xml:34:19
+		ADDED from AndroidManifest.xml:29:19
 intent-filter#android.intent.action.BOOT_COMPLETED
-ADDED from AndroidManifest.xml:35:13
+ADDED from AndroidManifest.xml:30:13
 action#android.intent.action.BOOT_COMPLETED
-ADDED from AndroidManifest.xml:36:17
+ADDED from AndroidManifest.xml:31:17
 	android:name
-		ADDED from AndroidManifest.xml:36:25
+		ADDED from AndroidManifest.xml:31:25
 activity#name.tanglei.airplaneswitcher.ui.TaskDetailActivity
-ADDED from AndroidManifest.xml:40:9
+ADDED from AndroidManifest.xml:35:9
 	android:label
-		ADDED from AndroidManifest.xml:42:13
+		ADDED from AndroidManifest.xml:37:13
 	android:name
-		ADDED from AndroidManifest.xml:41:13
-activity#name.tanglei.airplaneswitcher.FlightModeSwitcher
-ADDED from AndroidManifest.xml:44:9
-	android:label
-		ADDED from AndroidManifest.xml:46:13
-	android:name
-		ADDED from AndroidManifest.xml:45:13
-activity#name.tanglei.airplaneswitcher.ReceivedAction
-ADDED from AndroidManifest.xml:48:9
+		ADDED from AndroidManifest.xml:36:13
+activity#name.tanglei.airplaneswitcher.ui.ReceivedAction
+ADDED from AndroidManifest.xml:39:9
 	android:theme
-		ADDED from AndroidManifest.xml:50:13
+		ADDED from AndroidManifest.xml:41:13
 	android:name
-		ADDED from AndroidManifest.xml:49:13
+		ADDED from AndroidManifest.xml:40:13
 activity#name.tanglei.airplaneswitcher.ui.HomeActivity
+ADDED from AndroidManifest.xml:42:9
+	android:label
+		ADDED from AndroidManifest.xml:44:13
+	android:name
+		ADDED from AndroidManifest.xml:43:13
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:45:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:46:17
+	android:name
+		ADDED from AndroidManifest.xml:46:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:48:17
+	android:name
+		ADDED from AndroidManifest.xml:48:27
+activity#name.tanglei.airplaneswitcher.ui.OperationLogActivity
 ADDED from AndroidManifest.xml:51:9
 	android:label
 		ADDED from AndroidManifest.xml:53:13
 	android:name
 		ADDED from AndroidManifest.xml:52:13
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:54:13
-action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:55:17
-	android:name
-		ADDED from AndroidManifest.xml:55:25
-category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:57:17
-	android:name
-		ADDED from AndroidManifest.xml:57:27
-activity#name.tanglei.airplaneswitcher.ui.OperationLogActivity
-ADDED from AndroidManifest.xml:60:9
-	android:label
-		ADDED from AndroidManifest.xml:62:13
-	android:name
-		ADDED from AndroidManifest.xml:61:13

@@ -1,58 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values/arrays.xml -->
-    <eat-comment/>
-    <string-array name="buy_options">
-        <item>Google Play</item>
-        <item>Free with GetJar</item>
-    </string-array>
-    <string-array name="puzzle_difficulty">
-        <item>Easy</item>
-        <item>Medium</item>
-        <item>Hard</item>
-    </string-array>
-    <string-array name="puzzle_number">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-    </string-array>
-    <string-array name="settings_silence_alarm_array">
-        <item>5 minutes</item>
-        <item>10 minutes</item>
-        <item>15 minutes</item>
-        <item>20 minutes</item>
-        <item>25 minutes</item>
-        <item>30 minutes</item>
-        <item>No limit</item>
-    </string-array>
-    <string-array name="settings_silence_alarm_array_values">
-        <item>5</item>
-        <item>10</item>
-        <item>15</item>
-        <item>20</item>
-        <item>25</item>
-        <item>30</item>
-        <item>0</item>
-    </string-array>
-    <string-array name="shake_strength">
-        <item>A few shakes</item>
-        <item>Reasonable amount of shakes</item>
-        <item>Lots of shakes</item>
-    </string-array>
-    <string-array name="snooze_repetition">
-        <item>No</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>5</item>
-    </string-array>
-    <string-array name="song_pick_dialog_items">
-        <item>Your Music</item>
-        <item>Android Ringtones</item>
-        <item>Puzzle Alarm Tones</item>
-    </string-array>
     <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/exploded-aar/com.android.support/appcompat-v7/18.0.0/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="actionBarDivider"/>
@@ -124,14 +71,6 @@
     <bool name="abc_config_allowActionMenuItemTextWithIcon">false</bool>
     <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
     <bool name="abc_split_action_bar_is_narrow">true</bool>
-    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values/bools.xml -->
-    <eat-comment/>
-    <bool name="abs__action_bar_embed_tabs">false</bool>
-    <bool name="abs__action_bar_expanded_action_views_exclusive">true</bool>
-    <bool name="abs__config_actionMenuItemAllCaps">true</bool>
-    <bool name="abs__config_allowActionMenuItemTextWithIcon">false</bool>
-    <bool name="abs__config_showMenuShortcutsWhenKeyboardPresent">false</bool>
-    <bool name="abs__split_action_bar_is_narrow">true</bool>
     <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="BLACK">#000000</color>
@@ -155,8 +94,10 @@
     <color name="abs__background_holo_light">#fff3f3f3</color>
     <color name="abs__bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
     <color name="abs__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
-    <item name="abs__bright_foreground_holo_dark" type="color">@color/abs__background_holo_light</item>
-    <item name="abs__bright_foreground_holo_light" type="color">@color/abs__background_holo_dark</item>
+    <item name="abs__bright_foreground_holo_dark" type="color">@color/abs__background_holo_light
+    </item>
+    <item name="abs__bright_foreground_holo_light" type="color">@color/abs__background_holo_dark
+    </item>
     <color name="btn_focused">#ff0099cc</color>
     <color name="btn_normal">#00000000</color>
     <color name="btn_pressed">#ff33b5e5</color>
@@ -662,107 +603,83 @@
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="aboutContentHtml">
-<![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;业余时间做的，明显不够专业～比如UI啊，交互之类的还有待完善。<br/>
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;当然，如果您有什么意见或者建议欢迎交流反馈：<a href="mailto:admin@tanglei.name?subject=airplanemode-switcher反馈">admin@tanglei.name</a><br/>]]>
-    </string>
-    <string name="aboutOkButton">确定</string>
-    <string name="aboutTitle">关于</string>
-    <string name="action_add">添加</string>
-    <string name="action_delete_log">删除日志</string>
-    <string name="action_giveup">放弃更改</string>
-    <string name="action_operationLog">查看日志</string>
-    <string name="action_save">保存任务</string>
-    <string name="action_settings">Settings</string>
-    <string name="airplanemode_action_title">飞行模式切换中</string>
-    <string name="airplanemode_error">飞行模式设置失败</string>
-    <string name="airplanemode_off_tip">正在关闭飞行模式</string>
-    <string name="airplanemode_on_tip">正在开启飞行模式</string>
+    <string name="aboutContentHtml"><Data><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;业余时间做的，明显不够专业～比如UI啊，交互之类的还有待完善。<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;当然，如果您有什么意见或者建议欢迎交流反馈：<a href="mailto:i@tanglei.me?subject=airplanemode-switcher feedback">i@tanglei.me</a><br/>]]></Data></string>
+    <string name="aboutOkButton">OK</string>
+    <string name="aboutTitle">About</string>
+    <string name="action_add">Add</string>
+    <string name="action_delete_log">Clear logs</string>
+    <string name="action_giveup">Discard changes</string>
+    <string name="action_operation_log">Operation logs</string>
+    <string name="action_save">Save</string>
+    <string name="airplanemode_action_title">Switching the airplane mode</string>
+    <string name="airplanemode_error">Failed to switch the airplane mode</string>
+    <string name="airplanemode_off_tip">Stopping the airplane mode</string>
+    <string name="airplanemode_on_tip">Starting the airplane mode </string>
     <string name="alarm_line_is_sms">SMS</string>
     <string name="alarm_line_snoozed">SNOOZED</string>
-    <string name="alertDialogTaskInput_title">请输入任务名称</string>
-    <string name="alertDialogTimeChoose_title">请选择任务时间</string>
-    <string name="alertDialog_negative">取消</string>
-    <string name="alertDialog_positive">确定</string>
+    <string name="alertDialogTaskInput_title">Please input the task name</string>
+    <string name="alertDialogTimeChoose_title">Please choose the task time</string>
+    <string name="alertDialog_negative">Cancel</string>
+    <string name="alertDialog_positive">OK</string>
     <string name="app_name">AutoSwitcher</string>
-    <string name="belowtip">意见反馈：i@tanglei.me</string>
-    <string name="cancelAirmodeToast">取消成功</string>
-    <string name="confirmAirmodeButtonCancel">取消</string>
-    <string name="confirmAirmodeButtonOK">确定</string>
-    <string name="confirmAirmodeContentHtml"><Data><![CDATA[<small>您的手机即将进入飞行模式，点<b>“确定”</b>马上进入飞行模式，点<b>“取消”</b>跳过本次设置</small> ]]></Data></string>
-    <string name="confirmAirmodeTitle">飞行模式确认</string>
-    <string name="datetimeFormat">MM月dd日  HH:mm</string>
-    <string name="edit_repeat_title">重复</string>
-    <string name="edit_snooze">任务类型</string>
-    <string name="endtime_tip">关闭飞行模式</string>
-    <string name="firstTimeTipNormal">欢迎您使用，任何意见建议请发送邮件至:i@tanglei.me</string>
-    <string name="firstTimeTipTitle">欢迎您～</string>
-    <string name="friday">星期五</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="helpContentHhml">
-<![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;1.分别设定好需要开启、关闭飞行模式的时间，默认情况下为凌晨12点30分开启飞行模式，早上7点关闭飞行模式。然后打开当前状态的按钮即可，打开后会提示下次切换飞行模式的时间。<br/>
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;2.设定的时间到之后，App会自动尝试去启用飞行模式状态，当然得允许了(最好添加到信任程序列表，不然每次弹框)。<br/>
-        另外，设定的时间到之后，有可能你还正在使用手机而不想马上切换飞行模式，App会给你5s的时间考虑，5秒之后你没有操作，app就会自动启用飞行模式了。你可以选择取消本次切换，不过当你通过按手机返回键(Home键不会)或者杀掉这个进程再重新启动这个App的时候，会根据时间设定满足规则则自动切换。<br/>
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;3.切换"关闭"状态即取消设定功能，若当前手机正处于飞行模式状态，也会切换为正常状态。<br/>
-        <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;4.Bug反馈及交流请访问：<a href="http://www.tanglei.name/android-airplanemode-auto-switcher/?fromapp">tanglei\'s blog</a><br/>]]>
-    </string>
-    <string name="helpOkButton">确定</string>
-    <string name="helpTitle">帮助</string>
-    <string name="home_task_delete_alert_content">确认要删除该任务记录?</string>
-    <string name="home_task_delete_alert_title">警告!</string>
-    <string name="home_tasks_empty_tip">无任务</string>
-    <string name="menuAbout">关于</string>
-    <string name="menuHelp">帮助</string>
-    <string name="menuSetOffRightnow">立即关闭飞行模式</string>
-    <string name="menuSetOnRightnow">立即启动飞行模式</string>
-    <string name="monday">星期一</string>
-    <string name="nextStartTipPref">该任务下次执行的时间是： </string>
-    <string name="noCheckContent">没选是否开启呢?</string>
-    <string name="noCheckTitle">您在开玩笑?</string>
-    <string name="noRootError">您的手机版本太高端(>=4.2)了，且没有Root，我搞不定～～</string>
-    <string name="noRootErrorTitle">高端货～</string>
-    <string name="operation_log_attempt_off">尝试关闭飞行模式</string>
-    <string name="operation_log_attempt_on">尝试开启飞行模式</string>
-    <string name="operation_log_attempt_user_cancel">用户取消</string>
-    <string name="operation_log_attempt_user_force_suf">(手动) </string>
-    <string name="operation_log_empty_tip">无日志记录</string>
-    <string name="operation_log_fail_off">关闭飞行模式成功</string>
-    <string name="operation_log_fail_on">开启飞行模式成功</string>
-    <string name="operation_log_success_off">关闭飞行模式成功</string>
-    <string name="operation_log_success_on">开启飞行模式成功</string>
-    <string name="saturday">星期六</string>
-    <string name="setup_off">设置已经关闭</string>
-    <string name="setup_on">设置已经启用</string>
-    <string name="start">开启</string>
-    <string name="starttime_tip">开启飞行模式</string>
-    <string name="state">当  前  状  态</string>
-    <string name="stop">关闭</string>
-    <string name="sunday">星期日</string>
-    <string name="switchInfo">状态</string>
-    <string name="task_context_menu_delete">删除</string>
-    <string name="task_context_menu_edit">编辑</string>
-    <string name="task_context_menu_info">查看</string>
-    <string name="task_context_menu_title">请选择操作</string>
-    <string name="task_default_name">请输入任务名称</string>
-    <string name="thursday">星期四</string>
-    <string name="timeFormat">HH:mm</string>
+    <string name="cancelAirmodeToast">Canceled successfully</string>
+    <string name="confirmAirmodeButtonCancel">Cancel</string>
+    <string name="confirmAirmodeButtonOK">OK</string>
+    <string name="confirmAirmodeContentHtml"><Data><![CDATA[<small>Your device is about to switch into airplane mode, Click<b>“OK”</b> to confirm it，click<b>“Cancel”</b>to skip this request.</small> ]]></Data></string>
+    <string name="confirmAirmodeTitle">Confirmation</string>
+    <string name="datetimeFormat">MM-dd  HH:mm</string>
+    <string name="edit_repeat_title">Repeat</string>
+    <string name="edit_snooze">Task type</string>
+    <string name="firstTimeTipContent">Welcome to use this tool, any advice please feel free to send email to : i@tanglei.me</string>
+    <string name="firstTimeTipTitle">Welcome</string>
+    <string name="helpContentHhml"><Data><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;1. You can set the time to start or stop the airplane mode. You can add more than one tasks.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;2. When the time is up, this App attempted to switch(start or stop) the airplane mode with your permission(You\'d better add this App to the authorized list, or else it will ask for permission every time)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;3. When the time is up and you are using the device at the same time, you\'ll have 5 seconds to consider switch it right now or not. It will switch into the airplane mode if you do not take any action.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;4. Click the menu item "Operation logs" to view the details of operations. You can clear it when the log is too many.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;5. Feel free to contact me if you have any questions：<a href="http://www.tanglei.name/android-airplanemode-auto-switcher/?fromapp">tanglei\'s blog</a><br/>]]></Data></string>
+    <string name="helpOkButton">OK</string>
+    <string name="helpTitle">Help</string>
+    <string name="home_task_delete_alert_content">Confirm to delete this task?</string>
+    <string name="home_task_delete_alert_title">Alert!</string>
+    <string name="home_tasks_empty_tip">None tasks</string>
+    <string name="menuAbout">About</string>
+    <string name="menuHelp">Help</string>
+    <string name="menuSetOffRightnow">Stop airplane mode</string>
+    <string name="menuSetOnRightnow">Start airplane mode</string>
+    <string name="nextStartTipPref">Next time of this task is :</string>
+    <string name="noRootError">The OS version of your device is greater than 4.2 and not Rooted, I am sorry for not make it </string>
+    <string name="noRootErrorTitle">I am sorry</string>
+    <string name="operation_log_attempt_auto_suf">(auto)</string>
+    <string name="operation_log_attempt_off">Attempted to stop airplane mode</string>
+    <string name="operation_log_attempt_on">Attempted to start airplane mode</string>
+    <string name="operation_log_attempt_user_cancel">Cancel</string>
+    <string name="operation_log_attempt_user_force_suf">(manually)</string>
+    <string name="operation_log_empty_tip">None logs</string>
+    <string name="operation_log_fail_off">Stopped airplane mode failed</string>
+    <string name="operation_log_fail_on">Started airplane mode failed</string>
+    <string name="operation_log_success_off">Stopped airplane mode successfully</string>
+    <string name="operation_log_success_on">Started airplane mode successfully</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="switchInfo">State</string>
+    <string name="task_context_menu_delete">Delete</string>
+    <string name="task_context_menu_edit">Edit</string>
+    <string name="task_context_menu_info">View</string>
+    <string name="task_context_menu_title">Please choose operation</string>
+    <string name="task_default_getup_name">Get up!</string>
+    <string name="task_default_name">Please input the task name</string>
+    <string name="task_default_sleep_name">Sleep!</string>
+    <string name="timeFormat" translatable="false">HH:mm</string>
     <string name="title_activity_operation_log">OperationLog</string>
-    <string name="title_activity_test">TestActivity</string>
-    <string name="toggle_success_off">关闭成功</string>
-    <string name="toggle_success_on">开启成功</string>
-    <string name="tuesday">星期二</string>
-    <string name="txtAction">睡觉防骚扰</string>
-    <string name="txtModeTypeTip">选择类型</string>
-    <string name="txtRepeat">重复设置</string>
-    <string name="txtRepeatDesc">一,二,三,四,五,六,日</string>
-    <string name="txtRepeatDescPre">周</string>
-    <string name="txtRepeatEveryday">每天</string>
-    <string name="txtRepeatNone">一次</string>
-    <string name="txtRepeatWeekday">工作日</string>
-    <string name="txtTime">00:30</string>
-    <string name="txtTypeClosed">关闭</string>
-    <string name="txtTypeOpen">打开</string>
-    <string name="wednesday">星期三</string>
+    <string name="toggle_success_off">Stopped successfully</string>
+    <string name="toggle_success_on">Started successfully</string>
+    <string name="txtAction">Sleeping without disturb</string>
+    <string name="txtModeTypeTip">Choose the type</string>
+    <string name="txtRepeat">Set repeat type</string>
+    <string name="txtRepeatDesc">Mon,Tue,Wed,Thur,Fri,Sat,Sun</string>
+    <string name="txtRepeatDescPre"> </string>
+    <string name="txtRepeatEveryday">Everyday</string>
+    <string name="txtRepeatNone">Once</string>
+    <string name="txtRepeatWeekday">Workday</string>
+    <string name="txtTime" translatable="false">00:30</string>
+    <string name="txtTypeClosed">Stop</string>
+    <string name="txtTypeOpen">Start</string>
     <string name="weekdays_formater_everyday">EVERY DAY</string>
     <string name="weekdays_formater_friday">FRI</string>
     <string name="weekdays_formater_monday">MON</string>

@@ -3,6 +3,8 @@ package name.tanglei.airplaneswitcher.ui;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
@@ -296,10 +298,21 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
     public void showAboutDialog()
     {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle(this.getString(R.string.aboutTitle));
         alertDialogBuilder.setIcon(R.drawable.ic_action_about);
         TextView txtView = new TextView(this);
         txtView.setTextSize(15f);
+        String appName = "AutoSwitcher";
+        String version = "";
+        try {
+            PackageManager packageManager = getApplicationContext().getPackageManager();
+            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(getPackageName(), 0);
+            appName =
+                    (String) packageManager.getApplicationLabel(applicationInfo);
+            version = packageManager.getPackageInfo(getPackageName(), 0).versionName;
+        }catch(Exception e){
+        }
+        String appInfo = " " + appName + ""+ version; //not easy to center in content
+        alertDialogBuilder.setTitle(this.getString(R.string.aboutTitle) + appInfo);
         Spanned text = Html.fromHtml(this.getString(R.string.aboutContentHtml));
         txtView.setText(text);
         txtView.setClickable(true);

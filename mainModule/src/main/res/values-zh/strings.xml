@@ -13,7 +13,7 @@
     <string name="menuSetOffRightnow">关闭飞行模式</string>
     <string name="aboutTitle">关于</string>
     <string name="aboutContentHtml"><Data><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;业余时间做的，明显不够专业～比如UI啊，交互之类的还有待完善。<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;当然，如果您有什么意见或者建议欢迎交流反馈：<a href="mailto:i@tanglei.me?subject=airplanemode-switcher反馈">i@tanglei.me</a><br/>]]></Data></string>
-    <string name="helpContentHhml"><Data><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;1.分别设定好需要开启、关闭飞行模式的时间，点击某个任务状态的按钮会提示该任务下次执行的时间。您可以一次性设置多个任务。<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;2.设定的时间到之后，App会自动尝试去启用飞行模式状态，当然得允许了(最好添加到信任程序列表，不然每次弹框)。<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;3.设定的时间到之后，有可能你还正在使用手机而不想马上切换飞行模式，App会给你5s的时间考虑，5秒之后你没有操作，App就会自动启用飞行模式了。你可以点击取消终止本次操作。<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;4.点击菜单“查看运行日志”可以查看App的运行操作的记录，当日志过多时，您可以选择清空。<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;5.Bug反馈及交流请访问：<a href="http://www.tanglei.name/android-airplanemode-auto-switcher/?fromapp">tanglei\'s blog</a><br/>]]></Data></string>
+    <string name="helpContentHhml"><Data><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;1.分别设定好需要开启、关闭飞行模式的时间，点击某个任务状态的按钮会提示该任务下次执行的时间。您可以一次性设置多个任务。<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;2.设定的时间到之后(根据设备运行状态可能有不同时间的延迟)，App会自动尝试去启用飞行模式状态，当然得允许了(最好添加到信任程序列表，不然每次弹框)。<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;3.设定的时间到之后，有可能你还正在使用手机而不想马上切换飞行模式，App会给你5s的时间考虑，5秒之后你没有操作，App就会自动启用飞行模式了。你可以点击取消终止本次操作。<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;4.点击菜单“查看运行日志”可以查看App的运行操作的记录，当日志过多时，您可以选择清空。<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;5.更多图文教程请访问：<a href="http://www.tanglei.name/android-airplanemode-auto-switcher/?fromapp">tanglei\'s blog</a><br/>]]></Data></string>
     <string name="helpTitle">帮助</string>
     <string name="helpOkButton">确定</string>
     <string name="aboutOkButton">确定</string>
@@ -21,7 +21,7 @@
     <string name="datetimeFormat">MM月dd日  HH:mm</string>
     <string name="noRootError">您的手机版本太高端(>=4.2)了，且没有Root，我搞不定～～</string>
     <string name="noRootErrorTitle">高端货～</string>
-    <string name="firstTimeTipContent">欢迎您使用，任何意见建议请发送邮件至: i@tanglei.me</string>
+    <string name="firstTimeTipContent">欢迎您使用，首次使用请点击菜单查看帮助，任何意见或建议请发送邮件至: i@tanglei.me</string>
     <string name="firstTimeTipTitle">欢迎您～</string>
     <string name="confirmAirmodeTitle">飞行模式确认</string>
     <string name="confirmAirmodeContentHtml"><Data><![CDATA[<small>您的手机即将进入飞行模式，点<b>“确定”</b>马上进入飞行模式，点<b>“取消”</b>跳过本次设置</small> ]]></Data></string>

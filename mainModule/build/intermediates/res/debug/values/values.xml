@@ -634,7 +634,7 @@
     <string name="UMNotNow">Not now</string>
     <string name="UMTargetSize">Target size: </string>
     <string name="UMToast_IsUpdating">Updating....</string>
-    <string name="UMUpdateCheck">2.5.0.20141210</string>
+    <string name="UMUpdateCheck" translatable="false">2.5.0.20141210</string>
     <string name="UMUpdateContent">Update Content</string>
     <string name="UMUpdateNow">Update now</string>
     <string name="UMUpdateSize">Update size: </string>
@@ -686,7 +686,7 @@
     <string name="feedbackWelcome">Hi, I am tanglei, and thank you for your suggestion.</string>
     <string name="firstTimeTipContent">Welcome to use this tool, any advice please feel free to send email to : i@tanglei.me</string>
     <string name="firstTimeTipTitle">Welcome</string>
-    <string name="helpContentHhml"><Data><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;1. You can set the time to start or stop the airplane mode. You can add more than one tasks.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;2. When the time is up, this App attempted to switch(start or stop) the airplane mode with your permission(You\'d better add this App to the authorized list, or else it will ask for permission every time)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;3. When the time is up and you are using the device at the same time, you\'ll have 5 seconds to consider switch it right now or not. It will switch into the airplane mode if you do not take any action.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;4. Click the menu item "Operation logs" to view the details of operations. You can clear it when the log is too many.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;5. Feel free to contact me if you have any questions：<a href="http://www.tanglei.name/android-airplanemode-auto-switcher/?fromapp">tanglei\'s blog</a><br/>]]></Data></string>
+    <string name="helpContentHhml"><Data><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;1. You can set the time to start or stop the airplane mode. You can add more than one tasks.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;2. When the time is up(maybe there is a several minutes delay), this App attempted to switch(start or stop) the airplane mode with your permission(You\'d better add this App to the authorized list, or else it will ask for permission every time)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;3. When the time is up and you are using the device at the same time, you\'ll have 5 seconds to consider switch it right now or not. It will switch into the airplane mode if you do not take any action.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;4. Click the menu item "Operation logs" to view the details of operations. You can clear it when the log is too many.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;5. Feel free to contact me if you have any questions：<a href="http://www.tanglei.name/android-airplanemode-auto-switcher/?fromapp">tanglei\'s blog</a><br/>]]></Data></string>
     <string name="helpOkButton">OK</string>
     <string name="helpTitle">Help</string>
     <string name="home_task_delete_alert_content">Confirm to delete this task?</string>
@@ -749,7 +749,7 @@
     <string name="umeng_common_download_failed">Download Failed! </string>
     <string name="umeng_common_download_finish">Download finished,click to install it.</string>
     <string name="umeng_common_download_notification_prefix">Downloading: </string>
-    <string name="umeng_common_icon">icon</string>
+    <string name="umeng_common_icon" translatable="false">icon</string>
     <string name="umeng_common_info_interrupt">dowload interrupted.</string>
     <string name="umeng_common_network_break_alert">Please make sure you are connected to internet, download failed</string>
     <string name="umeng_common_patch_finish">Patch finished,click to install it.</string>

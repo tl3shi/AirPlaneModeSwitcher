@@ -107,7 +107,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper
             RuntimeExceptionDao<TaskEntity, Integer> dao = getHelper(context).getTaskDao();
             dao.create(new TaskEntity(true, TaskEntity.getRepeatWorkday(), 0, 00,
                     context.getResources().getString(R.string.task_default_sleep_name), true));
-            dao.create(new TaskEntity(true, TaskEntity.getRepeatWorkday(), 6, 30,
+            dao.create(new TaskEntity(false, TaskEntity.getRepeatWorkday(), 6, 30,
                     context.getResources().getString(R.string.task_default_getup_name), true));
             return true;
         }catch(Exception e) {

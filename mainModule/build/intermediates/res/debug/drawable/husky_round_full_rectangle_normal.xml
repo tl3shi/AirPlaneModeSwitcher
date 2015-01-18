@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/husky_fragment_background" />
-    <corners android:radius="4.0dip" />
-</shape><!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/drawable/husky_round_full_rectangle_normal.xml -->

@@ -2,8 +2,8 @@ AirPlaneModeSwitcher
 ===================
 
 - The main project: myAirPlaneMode
-- The switch compatLib reference: [SwitchCompatLibrary](https://github.com/ankri/SwitchCompatLibrary)
-- The actionbar compatLib reference: [actionbarsherlock](https://github.com/JakeWharton/ActionBarSherlock)
+- ~~The switch compatLib reference: [SwitchCompatLibrary](https://github.com/ankri/SwitchCompatLibrary) used in [v0.2](https://github.com/tl3shi/AirPlaneModeSwitcher/tree/v0.2)~~
+- ~~The actionbar compatLib reference: [actionbarsherlock](https://github.com/JakeWharton/ActionBarSherlock) used in [v0.2](https://github.com/tl3shi/AirPlaneModeSwitcher/tree/v0.2)~~
 
 More details(The history):
 

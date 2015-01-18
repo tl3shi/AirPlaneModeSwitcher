@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
+import com.umeng.analytics.MobclickAgent;
 
 import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.dao.DatabaseHelper;
@@ -247,5 +248,16 @@ public class TaskDetailActivity extends OrmLiteBaseActivity<DatabaseHelper>//Fra
         super.onDestroy();
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
 }

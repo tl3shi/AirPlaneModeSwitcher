@@ -85,4 +85,6 @@
     <string name="weekdays_formater_wednesday">WED</string>
     <string name="task_default_sleep_name">Sleep!</string>
     <string name="task_default_getup_name">Get up!</string>
+    <string name="menuFeedback">Feed back</string>
+    <string name="feedbackWelcome">Hi, I am tanglei, and thank you for your suggestion.</string>
 </resources>

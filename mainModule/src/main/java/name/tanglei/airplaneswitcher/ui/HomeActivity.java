@@ -19,6 +19,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.fb.FeedbackAgent;
+import com.umeng.update.UmengUpdateAgent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +48,7 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
+        UmengUpdateAgent.update(this);
         if(! Utils.getStoredPreferenceRooted(this) && android.os.Build.VERSION.SDK_INT >= 17)//no root
         {
             iCannotDoit();
@@ -83,6 +86,13 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
     {
         this.queryAllTasks();
         super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 
     private OnItemClickListener listClickedListener = new OnItemClickListener()
@@ -179,6 +189,13 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
             {
                 Intent intent  = new Intent(this, OperationLogActivity.class);
                 this.startActivity(intent);
+                break;
+            }
+            case R.id.id_action_feedback:
+            {
+                FeedbackAgent agent = new FeedbackAgent(this);
+                agent.setWelcomeInfo(getString(R.string.feedbackWelcome));
+                agent.startFeedbackActivity();
                 break;
             }
         }
@@ -295,6 +312,8 @@ public class HomeActivity extends OrmLiteBaseActivity<DatabaseHelper>
                     @Override
                     public void onClick(DialogInterface dialog, int which)
                     {
+                        UmengUpdateAgent.setUpdateOnlyWifi(false); //force update
+                        UmengUpdateAgent.update(HomeActivity.this);
                         dialog.dismiss();
                     }
                 });

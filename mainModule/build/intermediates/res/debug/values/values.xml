@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/exploded-aar/com.umeng/fb/5.1.0/res/values/values.xml -->
+    <eat-comment/>
+    <string-array name="umeng_fb_contact_key_array">
+        <item>@string/umeng_fb_contact_key_email</item>
+        <item>@string/umeng_fb_contact_key_qq</item>s
+        <item>@string/umeng_fb_contact_key_phone</item>
+        <item>@string/umeng_fb_contact_key_other</item>
+    </string-array>
+    <string-array name="umeng_fb_contact_type_array">
+        <item>@string/umeng_fb_contact_email</item>
+        <item>@string/umeng_fb_contact_qq</item>
+        <item>@string/umeng_fb_contact_phone</item>
+        <item>@string/umeng_fb_contact_other</item>
+    </string-array>
     <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/exploded-aar/com.android.support/appcompat-v7/18.0.0/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="actionBarDivider"/>
@@ -134,6 +148,17 @@
     <color name="popup_bg_color">#ee666666</color>
     <color name="popup_text_color">#ffffffff</color>
     <color name="pressed_pac">#cc33b5e5</color>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values/tb_munion_strings.xml -->
+    <eat-comment/>
+    <color name="tb_munion_item_force">#e3e3e3</color>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/exploded-aar/com.umeng/fb/5.1.0/res/values/values.xml -->
+    <eat-comment/>
+    <color name="umeng_fb_audo_dialog_bg">#F4F0745F</color>
+    <color name="umeng_fb_gray">#FFD8D8D8</color>
+    <color name="umeng_fb_lightblue">#FF0FB0A8</color>
+    <color name="umeng_fb_line">#DCDCDC</color>
+    <color name="umeng_fb_secondary_text_light">#8A000000</color>
+    <color name="umeng_fb_white">#FFFFFF</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr format="dimension" name="itemPadding"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ActionBarWindow"><attr format="boolean" name="windowActionBar"/><attr format="boolean" name="windowActionBarOverlay"/><attr format="boolean" name="windowSplitActionBar"/></declare-styleable>
@@ -263,6 +288,16 @@
     <dimen name="tutorial_box_padding_left">15.0dip</dimen>
     <dimen name="tutorial_box_padding_right">15.0dip</dimen>
     <dimen name="tutorial_box_text_size">12.0sp</dimen>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/exploded-aar/com.umeng/fb/5.1.0/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="umeng_fb_item_content_size">14sp</dimen>
+    <dimen name="umeng_fb_item_height">48dp</dimen>
+    <dimen name="umeng_fb_item_line_height">0.8dp</dimen>
+    <dimen name="umeng_fb_item_time_size">12sp</dimen>
+    <dimen name="umeng_fb_record_btn_text_size">20sp</dimen>
+    <dimen name="umeng_fb_spinner_padding_left">12dp</dimen>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values/dimens.xml -->
+    <eat-comment/>
     <dimen name="widget_alarm_text_am_pm">12.0sp</dimen>
     <dimen name="widget_two_one_hour">40.0sp</dimen>
     <dimen name="widget_two_one_hour_am_pm">30.0sp</dimen>
@@ -588,6 +623,24 @@
     <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/exploded-aar/com.android.support/appcompat-v7/18.0.0/res/values/values.xml -->
     <eat-comment/>
     <integer name="abc_max_action_buttons">2</integer>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values/umeng_update_string.xml -->
+    <eat-comment/>
+    <string name="UMAppUpdate">App updating</string>
+    <string name="UMBreak_Network">Please make sure you are connected to internet,update failed</string>
+    <string name="UMDialog_InstallAPK">The lastest version has been downloaded, install now ?</string>
+    <string name="UMGprsCondition">(Warning: Not WIFI Condition)</string>
+    <string name="UMIgnore">Ingore this</string>
+    <string name="UMNewVersion">Latest version: </string>
+    <string name="UMNotNow">Not now</string>
+    <string name="UMTargetSize">Target size: </string>
+    <string name="UMToast_IsUpdating">Updating....</string>
+    <string name="UMUpdateCheck">2.5.0.20141210</string>
+    <string name="UMUpdateContent">Update Content</string>
+    <string name="UMUpdateNow">Update now</string>
+    <string name="UMUpdateSize">Update size: </string>
+    <string name="UMUpdateTitle">New version found</string>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/exploded-aar/com.android.support/appcompat-v7/18.0.0/res/values/values.xml -->
+    <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_up_description">Navigate up</string>
     <string name="abc_action_menu_overflow_description">More options</string>
@@ -630,6 +683,7 @@
     <string name="datetimeFormat">MM-dd  HH:mm</string>
     <string name="edit_repeat_title">Repeat</string>
     <string name="edit_snooze">Task type</string>
+    <string name="feedbackWelcome">Hi, I am tanglei, and thank you for your suggestion.</string>
     <string name="firstTimeTipContent">Welcome to use this tool, any advice please feel free to send email to : i@tanglei.me</string>
     <string name="firstTimeTipTitle">Welcome</string>
     <string name="helpContentHhml"><Data><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;1. You can set the time to start or stop the airplane mode. You can add more than one tasks.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;2. When the time is up, this App attempted to switch(start or stop) the airplane mode with your permission(You\'d better add this App to the authorized list, or else it will ask for permission every time)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;3. When the time is up and you are using the device at the same time, you\'ll have 5 seconds to consider switch it right now or not. It will switch into the airplane mode if you do not take any action.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;4. Click the menu item "Operation logs" to view the details of operations. You can clear it when the log is too many.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;5. Feel free to contact me if you have any questions：<a href="http://www.tanglei.name/android-airplanemode-auto-switcher/?fromapp">tanglei\'s blog</a><br/>]]></Data></string>
@@ -639,6 +693,7 @@
     <string name="home_task_delete_alert_title">Alert!</string>
     <string name="home_tasks_empty_tip">None tasks</string>
     <string name="menuAbout">About</string>
+    <string name="menuFeedback">Feed back</string>
     <string name="menuHelp">Help</string>
     <string name="menuSetOffRightnow">Stop airplane mode</string>
     <string name="menuSetOnRightnow">Start airplane mode</string>
@@ -665,6 +720,11 @@
     <string name="task_default_getup_name">Get up!</string>
     <string name="task_default_name">Please input the task name</string>
     <string name="task_default_sleep_name">Sleep!</string>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values/tb_munion_strings.xml -->
+    <eat-comment/>
+    <string name="tb_munion_tip_download_prefix">正在下载:</string>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="timeFormat" translatable="false">HH:mm</string>
     <string name="title_activity_operation_log">OperationLog</string>
     <string name="toggle_success_off">Stopped successfully</string>
@@ -672,7 +732,7 @@
     <string name="txtAction">Sleeping without disturb</string>
     <string name="txtModeTypeTip">Choose the type</string>
     <string name="txtRepeat">Set repeat type</string>
-    <string name="txtRepeatDesc">Mon,Tue,Wed,Thur,Fri,Sat,Sun</string>
+    <string name="txtRepeatDesc">Mon, Tue, Wed, Thu, Fri, Sat, Sun</string>
     <string name="txtRepeatDescPre"> </string>
     <string name="txtRepeatEveryday">Everyday</string>
     <string name="txtRepeatNone">Once</string>
@@ -680,6 +740,62 @@
     <string name="txtTime" translatable="false">00:30</string>
     <string name="txtTypeClosed">Stop</string>
     <string name="txtTypeOpen">Start</string>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values/umeng_common_strings.xml -->
+    <eat-comment/>
+    <string name="umeng_common_action_cancel">Cancel</string>
+    <string name="umeng_common_action_continue">Continue</string>
+    <string name="umeng_common_action_info_exist">The app is already in downloading list.</string>
+    <string name="umeng_common_action_pause">Pause</string>
+    <string name="umeng_common_download_failed">Download Failed! </string>
+    <string name="umeng_common_download_finish">Download finished,click to install it.</string>
+    <string name="umeng_common_download_notification_prefix">Downloading: </string>
+    <string name="umeng_common_icon">icon</string>
+    <string name="umeng_common_info_interrupt">dowload interrupted.</string>
+    <string name="umeng_common_network_break_alert">Please make sure you are connected to internet, download failed</string>
+    <string name="umeng_common_patch_finish">Patch finished,click to install it.</string>
+    <string name="umeng_common_pause_notification_prefix">Pause: </string>
+    <string name="umeng_common_silent_download_finish">New version is ready,click to install it.</string>
+    <string name="umeng_common_start_download_notification">Download start.</string>
+    <string name="umeng_common_start_patch_notification">Patch start.</string>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/exploded-aar/com.umeng/fb/5.1.0/res/values/values.xml -->
+    <eat-comment/>
+    <string name="umeng_fb_back">Back</string>
+    <string name="umeng_fb_change_contact_title">Change contact Info</string>
+    <string name="umeng_fb_contact_email">Email</string>
+    <string name="umeng_fb_contact_info">Contact Info</string>
+    <string name="umeng_fb_contact_info_hint">Email, MSN, Gtalk, or whatever we can find you.</string>
+    <string name="umeng_fb_contact_key_email">email</string>
+    <string name="umeng_fb_contact_key_other">plain</string>
+    <string name="umeng_fb_contact_key_phone">phone</string>
+    <string name="umeng_fb_contact_key_qq">qq</string>
+    <string name="umeng_fb_contact_other">Other</string>
+    <string name="umeng_fb_contact_phone">Phone</string>
+    <string name="umeng_fb_contact_qq">QQ</string>
+    <string name="umeng_fb_contact_save">Save</string>
+    <string name="umeng_fb_count_down">Count down</string>
+    <string name="umeng_fb_feedback">Feedback</string>
+    <string name="umeng_fb_no_record_permission">No permission of record</string>
+    <string name="umeng_fb_notification_content_formatter_multiple_msg">You received %d new replies from the app developer.</string>
+    <string name="umeng_fb_notification_content_formatter_single_msg">New reply: %s</string>
+    <string name="umeng_fb_notification_ticker_text">Got new reply</string>
+    <string name="umeng_fb_press_speech">Hold to Talk</string>
+    <string name="umeng_fb_record_fail">Record fail</string>
+    <string name="umeng_fb_record_time_short">Message too short</string>
+    <string name="umeng_fb_release_cancel">Release to cancel</string>
+    <string name="umeng_fb_release_send">Release to Send</string>
+    <string name="umeng_fb_reply_content_default">Your precious feedback are appriciated.</string>
+    <string name="umeng_fb_send">Send</string>
+    <string name="umeng_fb_send_fail">Send fail</string>
+    <string name="umeng_fb_sending">Sending…</string>
+    <string name="umeng_fb_slide_up_cancel">Slide up to cancel</string>
+    <string name="umeng_fb_time_minutes_ago">%d minutes ago</string>
+    <string name="umeng_fb_time_pre_year_format">yy/MM/dd HH:mm:ss</string>
+    <string name="umeng_fb_time_right_now">Just now</string>
+    <string name="umeng_fb_time_this_year_format">MM/dd HH:mm:ss</string>
+    <string name="umeng_fb_title">Feedback</string>
+    <string name="umeng_fb_write_contact_title">Write contact Info</string>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="weekdays_formater_everyday">EVERY DAY</string>
     <string name="weekdays_formater_friday">FRI</string>
     <string name="weekdays_formater_monday">MON</string>
@@ -1004,6 +1120,14 @@
         <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
     </style>
     <style name="Theme.Base.Light" parent="android:Theme.Light"/>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/exploded-aar/com.umeng/fb/5.1.0/res/values/values.xml -->
+    <eat-comment/>
+    <style name="UmengFBSpeechStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground"> @android:color/transparent </item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <!-- From: file:/Users/TangLei/github/AirPlaneModeSwitcher/mainModule/build/intermediates/exploded-aar/com.android.support/appcompat-v7/18.0.0/res/values/values.xml -->
+    <eat-comment/>
     <style name="Widget.AppCompat.ActionBar" parent="Widget.AppCompat.Base.ActionBar"/>
     <style name="Widget.AppCompat.ActionBar.Solid" parent="Widget.AppCompat.Base.ActionBar.Solid"/>
     <style name="Widget.AppCompat.ActionBar.TabBar" parent="Widget.AppCompat.Base.ActionBar.TabBar"/>

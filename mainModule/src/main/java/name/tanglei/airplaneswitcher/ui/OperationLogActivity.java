@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
+
 import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.utils.OperationLogUtils;
 
@@ -48,5 +50,18 @@ public class OperationLogActivity extends Activity {
                 finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }

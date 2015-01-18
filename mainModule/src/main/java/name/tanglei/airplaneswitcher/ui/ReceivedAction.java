@@ -18,7 +18,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.umeng.analytics.MobclickAgent;
+
 import java.lang.ref.WeakReference;
+import java.util.HashMap;
 
 import name.tanglei.airplaneswitcher.R;
 import name.tanglei.airplaneswitcher.utils.AirplaneModeUtils;
@@ -31,7 +34,7 @@ public class ReceivedAction extends Activity
 
 	public final static String ACTION_TAG = "airmode_action";
 	public final static String USERACTION_TAG = "user_force_Action";
-	
+
 	private AlertDialog dialog = null;
 	private Button positiveButton = null;
 	private int delaycount = 5;
@@ -43,11 +46,16 @@ public class ReceivedAction extends Activity
 	private boolean is_user_force_action = false;
 
 	private boolean isScreenLocked = false;
-	
+
 	@Override
 	protected void onDestroy()
 	{
 		Log.i(TAG, "onDestroy");
+
+
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("is_user_force_action", is_user_force_action ? "true" : "false");
+        MobclickAgent.onEvent(this, "airplaneswitch", map);
 
         try //no api to detect if receiver is registered
         {
@@ -61,21 +69,11 @@ public class ReceivedAction extends Activity
 		super.onDestroy();
 		if(this.isScreenLocked)
 		{
-			Intent mIntent=new Intent(Intent.ACTION_MAIN);  
-			mIntent.addCategory(Intent.CATEGORY_HOME);  
-			this.startActivity(mIntent);  
+			Intent mIntent=new Intent(Intent.ACTION_MAIN);
+			mIntent.addCategory(Intent.CATEGORY_HOME);
+			this.startActivity(mIntent);
 		}
 	}
-
-
-	@Override
-	protected void onPause()
-	{
-		// TODO Auto-generated method stub
-		super.onPause();
-		Log.i(TAG, "onPause");
-	}
-
 
 	@Override
 	protected void onRestart()
@@ -86,14 +84,20 @@ public class ReceivedAction extends Activity
 	}
 
 
-	@Override
-	protected void onResume()
-	{
-		// TODO Auto-generated method stub
-		super.onResume();
-		Log.i(TAG, "onResume");
-	}
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        Log.i(TAG, "onResume");
+        MobclickAgent.onResume(this);
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause");
+        MobclickAgent.onPause(this);
+    }
 
 	@Override
 	protected void onStart()
@@ -174,6 +178,7 @@ public class ReceivedAction extends Activity
 	protected void onStop()
 	{
         Log.i(TAG, "onStop");
+
 		ReceivedAction.this.finish();
 		dismissProgressDialog();
 		super.onStop();
